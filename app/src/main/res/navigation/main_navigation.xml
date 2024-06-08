@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.pro.resume.craft.fragments.splash.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" />
+    <fragment
+        android:id="@+id/AICoverFragment"
+        android:name="com.pro.resume.craft.fragments.cvdata.coverletter.AICoverFragment"
+        android:label="fragment_a_i_cover"
+        tools:layout="@layout/fragment_a_i_cover" />
+    <fragment
+        android:id="@+id/addExperienceFragment"
+        android:name="com.pro.resume.craft.fragments.cvdata.experience.AddExperienceFragment"
+        android:label="fragment_add_experience"
+        tools:layout="@layout/fragment_add_experience" />
+    <fragment
+        android:id="@+id/addHobbiesFragment"
+        android:name="com.pro.resume.craft.fragments.cvdata.hobbies.AddHobbiesFragment"
+        android:label="fragment_add_hobbies"
+        tools:layout="@layout/fragment_add_hobbies" />
+    <fragment
+        android:id="@+id/addLanguagesFragment"
+        android:name="com.pro.resume.craft.fragments.cvdata.languages.AddLanguagesFragment"
+        android:label="fragment_add_languages"
+        tools:layout="@layout/fragment_add_languages" />
+    <fragment
+        android:id="@+id/addProfileFragment"
+        android:name="com.pro.resume.craft.fragments.profiles.AddProfileFragment"
+        android:label="fragment_add_profile"
+        tools:layout="@layout/fragment_add_profile" />
+    <fragment
+        android:id="@+id/addQualificationFragment"
+        android:name="com.pro.resume.craft.fragments.cvdata.qualification.AddQualificationFragment"
+        android:label="fragment_add_qualification"
+        tools:layout="@layout/fragment_add_qualification" />
+    <fragment
+        android:id="@+id/addReferenceFragment"
+        android:name="com.pro.resume.craft.fragments.cvdata.reference.AddReferenceFragment"
+        android:label="fragment_add_reference"
+        tools:layout="@layout/fragment_add_reference" />
+    <fragment
+        android:id="@+id/addSkillsFragment"
+        android:name="com.pro.resume.craft.fragments.cvdata.skills.AddSkillsFragment"
+        android:label="fragment_add_skills"
+        tools:layout="@layout/fragment_add_skills" />
+    <fragment
+        android:id="@+id/experienceFragment"
+        android:name="com.pro.resume.craft.fragments.cvdata.experience.ExperienceFragment"
+        android:label="fragment_experience"
+        tools:layout="@layout/fragment_experience" />
+    <fragment
+        android:id="@+id/forgetPasswordFragment"
+        android:name="com.pro.resume.craft.fragments.auth.ForgetPasswordFragment"
+        android:label="fragment_forget_password"
+        tools:layout="@layout/fragment_forget_password" />
+    <fragment
+        android:id="@+id/hobbiesFragment"
+        android:name="com.pro.resume.craft.fragments.cvdata.hobbies.HobbiesFragment"
+        android:label="fragment_hobbies"
+        tools:layout="@layout/fragment_hobbies" />
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.pro.resume.craft.fragments.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/languagesFragment"
+        android:name="com.pro.resume.craft.fragments.cvdata.languages.LanguagesFragment"
+        android:label="fragment_languages"
+        tools:layout="@layout/fragment_languages" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.pro.resume.craft.fragments.auth.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
+    <fragment
+        android:id="@+id/moreFragment"
+        android:name="com.pro.resume.craft.fragments.more.MoreFragment"
+        android:label="fragment_more"
+        tools:layout="@layout/fragment_more" />
+    <fragment
+        android:id="@+id/objectiveFragment"
+        android:name="com.pro.resume.craft.fragments.cvdata.objective.ObjectiveFragment"
+        android:label="fragment_objective"
+        tools:layout="@layout/fragment_objective" />
+    <fragment
+        android:id="@+id/personalInfoFragment"
+        android:name="com.pro.resume.craft.fragments.cvdata.personalinfo.PersonalInfoFragment"
+        android:label="fragment_personal_info"
+        tools:layout="@layout/fragment_personal_info" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.pro.resume.craft.fragments.profiles.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/profileListFragment"
+        android:name="com.pro.resume.craft.fragments.profiles.ProfileListFragment"
+        android:label="fragment_profile_list"
+        tools:layout="@layout/fragment_profile_list" />
+    <fragment
+        android:id="@+id/qualificationFragment"
+        android:name="com.pro.resume.craft.fragments.cvdata.qualification.QualificationFragment"
+        android:label="fragment_qualification"
+        tools:layout="@layout/fragment_qualification" />
+    <fragment
+        android:id="@+id/referenceFragment"
+        android:name="com.pro.resume.craft.fragments.cvdata.reference.ReferenceFragment"
+        android:label="fragment_reference"
+        tools:layout="@layout/fragment_reference" />
+    <fragment
+        android:id="@+id/removerFragment"
+        android:name="com.pro.resume.craft.fragments.cvdata.remove.background.RemoverFragment"
+        android:label="fragment_remover"
+        tools:layout="@layout/fragment_remover" />
+    <fragment
+        android:id="@+id/setTemplateFragment"
+        android:name="com.pro.resume.craft.fragments.templates.SetTemplateFragment"
+        android:label="fragment_set_template"
+        tools:layout="@layout/fragment_set_template" />
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.pro.resume.craft.fragments.auth.SignUpFragment"
+        android:label="fragment_sign_up"
+        tools:layout="@layout/fragment_sign_up" />
+    <fragment
+        android:id="@+id/skillsFragment"
+        android:name="com.pro.resume.craft.fragments.cvdata.skills.SkillsFragment"
+        android:label="fragment_skills"
+        tools:layout="@layout/fragment_skills" />
+    <fragment
+        android:id="@+id/templatesFragment"
+        android:name="com.pro.resume.craft.fragments.templates.TemplatesFragment"
+        android:label="fragment_templates"
+        tools:layout="@layout/fragment_templates" />
+
+</navigation>

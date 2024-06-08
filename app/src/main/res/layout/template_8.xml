@@ -1,0 +1,808 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/percent5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/percent10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/percent15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.15" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/percent20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.20" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/percent25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.25" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/percent30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.30" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/percent35"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.35" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/percent40"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.40" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/percent45"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.45" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/percent50"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.50" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/percent55"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.55" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/percent60"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.60" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/percent65"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.65" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/percent70"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.70" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/percent75"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.75" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/percent80"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.80" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/percent85"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.85" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/percent90"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.90" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/percent95"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.95" />
+
+    <!--    Horizontal Guides-->
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/horizontalPercent5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/horizontalPercent10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/horizontalPercent15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.15" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/horizontalPercent20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.20" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/horizontalPercent25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.25" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/horizontalPercent30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.30" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/horizontalPercent35"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.35" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/horizontalPercent40"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.40" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/horizontalPercent45"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.45" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/horizontalPercent50"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.50" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/horizontalPercent55"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.55" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/horizontalPercent60"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.60" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/horizontalPercent65"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.65" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/horizontalPercent70"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.70" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/horizontalPercent75"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.75" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/horizontalPercent80"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.80" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/horizontalPercent85"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.85" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/horizontalPercent90"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.90" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/horizontalPercent95"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.95" />
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:src="@drawable/template_8_back"
+        android:scaleType="fitXY"/>
+
+    <ImageView
+        android:layout_width="@dimen/_110sdp"
+        android:layout_height="@dimen/_110sdp"
+        android:src="@drawable/template_8_progress_circles_stroke"
+        app:layout_constraintStart_toStartOf="@id/percent5"
+        app:layout_constraintTop_toBottomOf="@id/horizontalPercent5"
+        android:id="@+id/profileBorder"/>
+
+    <View
+        android:layout_width="@dimen/_10sdp"
+        android:layout_height="@dimen/_10sdp"
+        android:background="@drawable/progress_circles"
+        app:layout_constraintStart_toEndOf="@id/profileBorder"
+        app:layout_constraintEnd_toEndOf="@id/profileBorder"
+        app:layout_constraintTop_toTopOf="@id/profileBorder"
+        android:backgroundTint="#3F3F3F"
+        app:layout_constraintBottom_toBottomOf="@id/profileBorder"
+        app:layout_constraintTop_toBottomOf="@id/horizontalPercent5"/>
+
+    <View
+        android:layout_width="@dimen/_8sdp"
+        android:layout_height="@dimen/_8sdp"
+        android:background="@drawable/progress_circles"
+        app:layout_constraintStart_toStartOf="@id/personalInfoPortion"
+        app:layout_constraintEnd_toEndOf="@id/personalInfoPortion"
+        app:layout_constraintTop_toTopOf="@id/personalInfoPortion"
+        android:backgroundTint="#3F3F3F"
+        android:id="@+id/nameView"/>
+
+    <View
+        android:layout_width="@dimen/_8sdp"
+        android:layout_height="@dimen/_8sdp"
+        android:background="@drawable/progress_circles"
+        app:layout_constraintStart_toStartOf="@id/personalInfoPortion"
+        app:layout_constraintEnd_toEndOf="@id/personalInfoPortion"
+        app:layout_constraintTop_toBottomOf="@id/profession"
+        app:ttb="@id/personalInfoPortion"
+        android:backgroundTint="#3F3F3F"
+        android:id="@+id/contactView"
+        android:layout_marginTop="@dimen/_10sdp"/>
+
+    <View
+        android:layout_width="@dimen/_8sdp"
+        android:layout_height="@dimen/_8sdp"
+        android:background="@drawable/progress_circles"
+        app:layout_constraintStart_toStartOf="@id/personalInfoPortion"
+        app:layout_constraintEnd_toEndOf="@id/personalInfoPortion"
+        app:layout_constraintTop_toBottomOf="@id/address"
+        app:ttb="@id/personalInfoPortion"
+        android:backgroundTint="#3F3F3F"
+        android:id="@+id/languagesView"
+        android:layout_marginTop="@dimen/_5sdp"/>
+
+
+    <View
+        android:layout_width="@dimen/_8sdp"
+        android:layout_height="@dimen/_8sdp"
+        android:background="@drawable/progress_circles"
+        app:layout_constraintStart_toStartOf="@id/personalInfoPortion"
+        app:layout_constraintEnd_toEndOf="@id/personalInfoPortion"
+        app:layout_constraintTop_toBottomOf="@id/address"
+        app:ttb="@id/personalInfoPortion"
+        android:backgroundTint="#3F3F3F"
+        android:id="@+id/view_4"
+        android:layout_marginTop="@dimen/_5sdp"/>
+
+    <com.google.android.material.card.MaterialCardView
+        app:strokeColor="@android:color/transparent"
+        android:id="@+id/profileCard"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/_8sdp"
+        app:cardCornerRadius="@dimen/_70sdp"
+        app:layout_constraintStart_toStartOf="@id/profileBorder"
+        app:layout_constraintEnd_toEndOf="@id/profileBorder"
+        app:layout_constraintTop_toTopOf="@id/profileBorder"
+        app:layout_constraintBottom_toBottomOf="@id/profileBorder">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/img"
+            android:id="@+id/profile"
+            android:scaleType="centerCrop"/>
+    </com.google.android.material.card.MaterialCardView>
+
+    <View
+        android:id="@+id/personalInfoPortion"
+        android:layout_width="2dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toEndOf="@id/percent5"
+        app:layout_constraintTop_toBottomOf="@id/profileBorder"
+        app:layout_constraintBottom_toBottomOf="@id/hobbiesRV"
+        android:background="#3F3F3F"
+        android:layout_marginTop="@dimen/_20sdp"/>
+
+    <TextView
+        android:id="@+id/firstName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sumaib"
+        android:textSize="@dimen/_16sdp"
+        app:layout_constraintStart_toEndOf="@+id/nameView"
+        app:layout_constraintTop_toTopOf="@id/nameView"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:fontFamily="@font/montserrat_medium"
+        android:textColor="@color/textColor"/>
+
+    <TextView
+        android:id="@+id/lastName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hamza"
+        android:fontFamily="@font/montserrat_medium"
+        app:layout_constraintStart_toStartOf="@+id/firstName"
+        app:layout_constraintTop_toBottomOf="@id/firstName"
+        android:textSize="@dimen/_14sdp"
+        android:textColor="@color/textColor"/>
+
+    <TextView
+        android:id="@+id/profession"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Android Developer"
+        android:fontFamily="@font/montserrat_medium"
+        app:layout_constraintStart_toStartOf="@+id/firstName"
+        app:layout_constraintTop_toBottomOf="@id/lastName"
+        android:textSize="@dimen/_8sdp"
+        android:textColor="@color/textColor"/>
+
+    <TextView
+        android:id="@+id/contactTitle"
+        android:textAlignment="textStart"
+        app:layout_constraintEnd_toEndOf="@id/profileBorder"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Contact"
+        android:fontFamily="@font/montserrat_medium"
+        app:layout_constraintStart_toEndOf="@id/contactView"
+        app:layout_constraintTop_toTopOf="@id/contactView"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:textSize="@dimen/_8sdp"
+        android:textColor="@color/textColor"/>
+
+    <TextView
+        android:id="@+id/emailTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Email"
+        android:textAlignment="textStart"
+        app:layout_constraintEnd_toEndOf="@id/profileBorder"
+        android:fontFamily="@font/montserrat_medium"
+        app:layout_constraintTop_toBottomOf="@id/contactTitle"
+        android:textSize="@dimen/_6sdp"
+        app:layout_constraintStart_toStartOf="@id/contactTitle"
+        android:textColor="@color/textColor"
+        android:layout_marginTop="@dimen/_5sdp"/>
+
+    <TextView
+        android:id="@+id/email"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="784598@gmail.com"
+        android:textAlignment="textStart"
+        app:layout_constraintEnd_toEndOf="@id/profileBorder"
+        android:fontFamily="@font/montserrat_regular"
+        app:layout_constraintTop_toBottomOf="@id/emailTitle"
+        android:textSize="@dimen/_6sdp"
+        app:layout_constraintStart_toStartOf="@id/contactTitle"
+        android:textColor="@color/textColor"/>
+
+    <TextView
+        android:id="@+id/phoneTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Phone"
+        android:textAlignment="textStart"
+        app:layout_constraintEnd_toEndOf="@id/profileBorder"
+        android:fontFamily="@font/montserrat_medium"
+        app:layout_constraintTop_toBottomOf="@id/email"
+        android:textSize="@dimen/_6sdp"
+        app:layout_constraintStart_toStartOf="@id/contactTitle"
+        android:textColor="@color/textColor"
+        android:layout_marginTop="@dimen/_3sdp"/>
+
+    <TextView
+        android:id="@+id/phone"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="03065894586"
+        android:textAlignment="textStart"
+        app:layout_constraintEnd_toEndOf="@id/profileBorder"
+        android:fontFamily="@font/montserrat_regular"
+        app:layout_constraintTop_toBottomOf="@id/phoneTitle"
+        app:layout_constraintStart_toStartOf="@id/contactTitle"
+        android:textColor="@color/textColor"
+        android:textSize="@dimen/_6sdp"/>
+
+    <TextView
+        android:id="@+id/webTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Website"
+        android:textAlignment="textStart"
+        app:layout_constraintEnd_toEndOf="@id/profileBorder"
+        android:fontFamily="@font/montserrat_medium"
+        app:layout_constraintTop_toBottomOf="@id/phone"
+        android:textSize="@dimen/_6sdp"
+        app:layout_constraintStart_toStartOf="@id/contactTitle"
+        android:textColor="@color/textColor"
+        android:layout_marginTop="@dimen/_3sdp"/>
+
+    <TextView
+        android:id="@+id/website"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="www.thstshd.com"
+        android:textAlignment="textStart"
+        app:layout_constraintEnd_toEndOf="@id/profileBorder"
+        android:fontFamily="@font/montserrat_regular"
+        app:layout_constraintTop_toBottomOf="@id/webTitle"
+        android:textSize="@dimen/_6sdp"
+        app:layout_constraintStart_toStartOf="@id/contactTitle"
+        android:textColor="@color/textColor"/>
+
+    <TextView
+        android:id="@+id/addressTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Address"
+        android:fontFamily="@font/montserrat_medium"
+        app:layout_constraintTop_toBottomOf="@id/website"
+        android:textSize="@dimen/_6sdp"
+        android:textAlignment="textStart"
+        app:layout_constraintEnd_toEndOf="@id/profileBorder"
+        app:layout_constraintStart_toStartOf="@id/contactTitle"
+        android:textColor="@color/textColor"
+        android:layout_marginTop="@dimen/_3sdp"/>
+
+    <TextView
+        android:id="@+id/address"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="715 Arington Avenue Oak ridge, Tn 35785"
+        android:fontFamily="@font/montserrat_regular"
+        app:layout_constraintTop_toBottomOf="@id/addressTitle"
+        app:layout_constraintEnd_toEndOf="@id/profileBorder"
+        android:textSize="@dimen/_6sdp"
+        app:layout_constraintStart_toStartOf="@id/contactTitle"
+        android:textColor="@color/textColor"/>
+
+    <TextView
+        android:id="@+id/languagesTitle"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Languages"
+        android:fontFamily="@font/montserrat_medium"
+        app:layout_constraintStart_toEndOf="@id/languagesView"
+        app:layout_constraintTop_toTopOf="@id/languagesView"
+        app:layout_constraintEnd_toEndOf="@+id/profileBorder"
+        android:textAlignment="textStart"
+        android:textSize="@dimen/_8sdp"
+        android:textColor="@color/textColor"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/languagesRV"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/languagesTitle"
+        app:layout_constraintEnd_toEndOf="@+id/profileBorder"
+        app:layout_constraintTop_toBottomOf="@id/languagesTitle"
+        android:layout_marginTop="@dimen/_5sdp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:itemCount="4"
+        tools:listitem="@layout/template_4_lang_item"
+        app:spanCount="2"/>
+
+
+    <View
+        android:layout_width="@dimen/_8sdp"
+        android:layout_height="@dimen/_8sdp"
+        android:background="@drawable/progress_circles"
+        app:layout_constraintStart_toStartOf="@id/personalInfoPortion"
+        app:layout_constraintEnd_toEndOf="@id/personalInfoPortion"
+        app:layout_constraintTop_toBottomOf="@id/skillsRV"
+        app:ttb="@id/personalInfoPortion"
+        android:backgroundTint="#3F3F3F"
+        android:id="@+id/hobbiesView"
+        android:layout_marginTop="@dimen/_5sdp"/>
+
+    <TextView
+        android:id="@+id/hobbiesTitle"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Skills"
+        android:fontFamily="@font/montserrat_medium"
+        app:layout_constraintStart_toEndOf="@id/hobbiesView"
+        app:layout_constraintTop_toTopOf="@id/hobbiesView"
+        app:layout_constraintEnd_toEndOf="@+id/profileBorder"
+        android:textAlignment="textStart"
+        android:textSize="@dimen/_8sdp"
+        android:textColor="@color/textColor"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/hobbiesRV"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/hobbiesTitle"
+        app:layout_constraintEnd_toEndOf="@+id/profileBorder"
+        app:layout_constraintTop_toBottomOf="@id/hobbiesTitle"
+        android:layout_marginTop="@dimen/_5sdp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        tools:itemCount="4"
+        tools:listitem="@layout/text_only_item_view"
+        app:spanCount="2"/>
+
+    <View
+        android:layout_width="@dimen/_8sdp"
+        android:layout_height="@dimen/_8sdp"
+        android:background="@drawable/progress_circles"
+        app:layout_constraintStart_toStartOf="@id/personalInfoPortion"
+        app:layout_constraintEnd_toEndOf="@id/personalInfoPortion"
+        app:layout_constraintTop_toBottomOf="@id/languagesRV"
+        app:ttb="@id/personalInfoPortion"
+        android:backgroundTint="#3F3F3F"
+        android:id="@+id/skillsView"
+        android:layout_marginTop="@dimen/_5sdp"/>
+
+    <TextView
+        android:id="@+id/skillsTitle"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Skills"
+        android:fontFamily="@font/montserrat_medium"
+        app:layout_constraintStart_toEndOf="@id/skillsView"
+        app:layout_constraintTop_toTopOf="@id/skillsView"
+        app:layout_constraintEnd_toEndOf="@+id/profileBorder"
+        android:textAlignment="textStart"
+        android:textSize="@dimen/_8sdp"
+        android:textColor="@color/textColor"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/skillsRV"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/skillsTitle"
+        app:layout_constraintEnd_toEndOf="@+id/profileBorder"
+        app:layout_constraintTop_toBottomOf="@id/skillsTitle"
+        android:layout_marginTop="@dimen/_5sdp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:itemCount="4"
+        tools:listitem="@layout/template_4_lang_item"
+        app:spanCount="2"/>
+
+    <View
+        android:id="@+id/expPortion"
+        android:layout_width="2dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="@dimen/_10sdp"
+        app:layout_constraintStart_toEndOf="@id/profileBorder"
+        app:layout_constraintBottom_toBottomOf="@id/horizontalPercent95"
+        android:background="#3F3F3F"/>
+
+    <View
+        android:layout_width="@dimen/_8sdp"
+        android:layout_height="@dimen/_8sdp"
+        android:background="@drawable/progress_circles"
+        app:layout_constraintStart_toStartOf="@id/expPortion"
+        app:layout_constraintEnd_toEndOf="@id/expPortion"
+        app:layout_constraintTop_toTopOf="@id/profileBorder"
+        app:ttb="@id/personalInfoPortion"
+        android:backgroundTint="#3F3F3F"
+        android:id="@+id/objView"
+        android:layout_marginTop="@dimen/_5sdp"/>
+
+    <TextView
+        android:id="@+id/objTitle"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Objective"
+        android:fontFamily="@font/montserrat_medium"
+        app:layout_constraintStart_toEndOf="@id/objView"
+        app:layout_constraintTop_toTopOf="@id/objView"
+        app:layout_constraintEnd_toEndOf="@+id/percent95"
+        android:textAlignment="textStart"
+        android:textSize="@dimen/_8sdp"
+        android:textColor="@color/textColor"/>
+
+    <TextView
+        android:id="@+id/objective"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Professional [Your Profession] with [number] years of experience in [key skills or industries]. Seeking a [desired position] at [Company Name] to [what you aim to achieve or contribute], leveraging my [specific skills or expertise] to [desired outcome]."
+        android:fontFamily="@font/montserrat_regular"
+        android:textSize="@dimen/_6sdp"
+        android:textAlignment="textStart"
+        app:layout_constraintStart_toStartOf="@id/objTitle"
+        app:layout_constraintTop_toBottomOf="@id/objTitle"
+        app:layout_constraintEnd_toEndOf="@+id/percent95"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:textColor="@color/textColor"/>
+
+    <View
+        android:layout_width="@dimen/_8sdp"
+        android:layout_height="@dimen/_8sdp"
+        android:background="@drawable/progress_circles"
+        app:layout_constraintStart_toStartOf="@id/expPortion"
+        app:layout_constraintEnd_toEndOf="@id/expPortion"
+        app:layout_constraintTop_toBottomOf="@id/objective"
+        app:ttb="@id/personalInfoPortion"
+        android:backgroundTint="#3F3F3F"
+        android:id="@+id/eduView"
+        android:layout_marginTop="@dimen/_5sdp"/>
+
+    <TextView
+        android:id="@+id/eduTitle"
+        android:gravity="center_horizontal"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Education"
+        android:fontFamily="@font/montserrat_medium"
+        app:layout_constraintStart_toEndOf="@id/eduView"
+        app:layout_constraintTop_toTopOf="@id/eduView"
+        android:textSize="@dimen/_10sdp"
+        android:textColor="@color/textColor"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/educationRV"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/eduTitle"
+        app:layout_constraintEnd_toEndOf="@id/percent95"
+        app:layout_constraintTop_toBottomOf="@id/eduTitle"
+        android:layout_marginTop="@dimen/_5sdp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:itemCount="3"
+        tools:listitem="@layout/template_1_edu_item"
+        android:layout_marginBottom="@dimen/_20sdp"
+        app:spanCount="2"/>
+
+    <View
+        android:layout_width="@dimen/_8sdp"
+        android:layout_height="@dimen/_8sdp"
+        android:background="@drawable/progress_circles"
+        app:layout_constraintStart_toStartOf="@id/expPortion"
+        app:layout_constraintEnd_toEndOf="@id/expPortion"
+        app:layout_constraintTop_toBottomOf="@id/educationRV"
+        app:ttb="@id/personalInfoPortion"
+        android:backgroundTint="#3F3F3F"
+        android:id="@+id/expView"
+        android:layout_marginTop="@dimen/_5sdp"/>
+
+    <TextView
+        android:id="@+id/expTitle"
+        android:gravity="center_horizontal"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Experience"
+        android:fontFamily="@font/montserrat_medium"
+        app:layout_constraintStart_toEndOf="@id/expView"
+        app:layout_constraintTop_toTopOf="@id/expView"
+        android:textSize="@dimen/_10sdp"
+        android:textColor="@color/textColor"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/experienceRV"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/expTitle"
+        app:layout_constraintEnd_toEndOf="@id/percent95"
+        app:layout_constraintTop_toBottomOf="@id/expTitle"
+        android:layout_marginTop="@dimen/_5sdp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:itemCount="3"
+        tools:listitem="@layout/template_1_edu_item"
+        android:layout_marginBottom="@dimen/_20sdp"
+        app:spanCount="2"/>
+
+    <View
+        android:layout_width="@dimen/_8sdp"
+        android:layout_height="@dimen/_8sdp"
+        android:background="@drawable/progress_circles"
+        app:layout_constraintStart_toStartOf="@id/expPortion"
+        app:layout_constraintEnd_toEndOf="@id/expPortion"
+        app:layout_constraintTop_toBottomOf="@id/experienceRV"
+        app:ttb="@id/personalInfoPortion"
+        android:backgroundTint="#3F3F3F"
+        android:id="@+id/refView"
+        android:layout_marginTop="@dimen/_5sdp"/>
+
+    <TextView
+        android:id="@+id/refTitle"
+        android:gravity="center_horizontal"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="References"
+        android:fontFamily="@font/montserrat_medium"
+        app:layout_constraintStart_toEndOf="@id/refView"
+        app:layout_constraintTop_toTopOf="@id/refView"
+        android:textSize="@dimen/_10sdp"
+        android:textColor="@color/textColor"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/referenceRV"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/refTitle"
+        app:layout_constraintEnd_toEndOf="@id/percent95"
+        app:layout_constraintTop_toBottomOf="@id/refTitle"
+        android:layout_marginTop="@dimen/_5sdp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        tools:itemCount="2"
+        tools:listitem="@layout/template_1_ref_item"
+        app:spanCount="2"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

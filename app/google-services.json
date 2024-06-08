@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "632621154636",
+    "project_id": "pro-resume-craft-5789e",
+    "storage_bucket": "pro-resume-craft-5789e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:632621154636:android:5787610b8d637119584fe9",
+        "android_client_info": {
+          "package_name": "com.pro.resume.craft"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBY2Rgo6UgzcNO8vPMHp_xb8O5jbzmn6A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

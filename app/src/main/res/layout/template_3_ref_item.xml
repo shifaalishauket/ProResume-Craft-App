@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <View
+        android:id="@+id/bullet"
+        android:layout_width="@dimen/_5sdp"
+        android:layout_height="@dimen/_5sdp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="#F7902B"/>
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Jonathan Deo"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:fontFamily="@font/montserrat_medium"
+        app:layout_constraintStart_toEndOf="@id/bullet"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="@dimen/_8sdp"
+        android:textColor="@color/textColor"/>
+
+    <TextView
+        android:id="@+id/subTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="HR Manager"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:fontFamily="@font/montserrat_medium"
+        app:layout_constraintStart_toEndOf="@id/bullet"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="@dimen/_6sdp"
+        android:textColor="#F7902B"/>
+
+    <TextView
+        android:id="@+id/email"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="hrmanager@gmail.com"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:fontFamily="@font/montserrat_medium"
+        app:layout_constraintStart_toEndOf="@id/bullet"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/subTitle"
+        android:textSize="@dimen/_6sdp"
+        android:textColor="@color/textColor"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
