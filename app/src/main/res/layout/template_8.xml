@@ -319,7 +319,6 @@
         app:layout_constraintStart_toStartOf="@id/personalInfoPortion"
         app:layout_constraintEnd_toEndOf="@id/personalInfoPortion"
         app:layout_constraintTop_toBottomOf="@id/profession"
-        app:ttb="@id/personalInfoPortion"
         android:backgroundTint="#3F3F3F"
         android:id="@+id/contactView"
         android:layout_marginTop="@dimen/_10sdp"/>
@@ -331,7 +330,6 @@
         app:layout_constraintStart_toStartOf="@id/personalInfoPortion"
         app:layout_constraintEnd_toEndOf="@id/personalInfoPortion"
         app:layout_constraintTop_toBottomOf="@id/address"
-        app:ttb="@id/personalInfoPortion"
         android:backgroundTint="#3F3F3F"
         android:id="@+id/languagesView"
         android:layout_marginTop="@dimen/_5sdp"/>
@@ -344,7 +342,6 @@
         app:layout_constraintStart_toStartOf="@id/personalInfoPortion"
         app:layout_constraintEnd_toEndOf="@id/personalInfoPortion"
         app:layout_constraintTop_toBottomOf="@id/address"
-        app:ttb="@id/personalInfoPortion"
         android:backgroundTint="#3F3F3F"
         android:id="@+id/view_4"
         android:layout_marginTop="@dimen/_5sdp"/>
@@ -569,7 +566,6 @@
         app:layout_constraintStart_toStartOf="@id/personalInfoPortion"
         app:layout_constraintEnd_toEndOf="@id/personalInfoPortion"
         app:layout_constraintTop_toBottomOf="@id/skillsRV"
-        app:ttb="@id/personalInfoPortion"
         android:backgroundTint="#3F3F3F"
         android:id="@+id/hobbiesView"
         android:layout_marginTop="@dimen/_5sdp"/>
@@ -608,7 +604,6 @@
         app:layout_constraintStart_toStartOf="@id/personalInfoPortion"
         app:layout_constraintEnd_toEndOf="@id/personalInfoPortion"
         app:layout_constraintTop_toBottomOf="@id/languagesRV"
-        app:ttb="@id/personalInfoPortion"
         android:backgroundTint="#3F3F3F"
         android:id="@+id/skillsView"
         android:layout_marginTop="@dimen/_5sdp"/>
@@ -657,7 +652,6 @@
         app:layout_constraintStart_toStartOf="@id/expPortion"
         app:layout_constraintEnd_toEndOf="@id/expPortion"
         app:layout_constraintTop_toTopOf="@id/profileBorder"
-        app:ttb="@id/personalInfoPortion"
         android:backgroundTint="#3F3F3F"
         android:id="@+id/objView"
         android:layout_marginTop="@dimen/_5sdp"/>
@@ -697,7 +691,6 @@
         app:layout_constraintStart_toStartOf="@id/expPortion"
         app:layout_constraintEnd_toEndOf="@id/expPortion"
         app:layout_constraintTop_toBottomOf="@id/objective"
-        app:ttb="@id/personalInfoPortion"
         android:backgroundTint="#3F3F3F"
         android:id="@+id/eduView"
         android:layout_marginTop="@dimen/_5sdp"/>
@@ -736,7 +729,6 @@
         app:layout_constraintStart_toStartOf="@id/expPortion"
         app:layout_constraintEnd_toEndOf="@id/expPortion"
         app:layout_constraintTop_toBottomOf="@id/educationRV"
-        app:ttb="@id/personalInfoPortion"
         android:backgroundTint="#3F3F3F"
         android:id="@+id/expView"
         android:layout_marginTop="@dimen/_5sdp"/>
@@ -775,7 +767,6 @@
         app:layout_constraintStart_toStartOf="@id/expPortion"
         app:layout_constraintEnd_toEndOf="@id/expPortion"
         app:layout_constraintTop_toBottomOf="@id/experienceRV"
-        app:ttb="@id/personalInfoPortion"
         android:backgroundTint="#3F3F3F"
         android:id="@+id/refView"
         android:layout_marginTop="@dimen/_5sdp"/>

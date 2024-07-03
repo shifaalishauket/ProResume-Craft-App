@@ -30,45 +30,34 @@ public class MainActivity extends AppCompatActivity {
         binding.bottomNav.setOnItemSelectedListener(new ChipNavigationBar.OnItemSelectedListener() {
             @Override
             public void onItemSelected(int id) {
-                switch (id) {
-                    case R.id.home:
-                        navController.navigate(R.id.homeFragment);
-                        break;
-                    case R.id.templates:
-                        navController.navigate(R.id.templatesFragment);
-                        break;
-                    case R.id.profile:
-                        navController.navigate(R.id.profileFragment);
-                        break;
-                    case R.id.more:
-                        navController.navigate(R.id.moreFragment);
-                        break;
+                if (id == R.id.home) {
+                    navController.navigate(R.id.homeFragment);
+                } else if (id == R.id.templates) {
+                    navController.navigate(R.id.templatesFragment);
+                } else if (id == R.id.profile) {
+                    navController.navigate(R.id.profileFragment);
+                } else if (id == R.id.more) {
+                    navController.navigate(R.id.moreFragment);
                 }
             }
         });
 
         navController.addOnDestinationChangedListener((controller, destination, arguments) -> {
             int id = destination.getId();
-            switch (id) {
-                case R.id.homeFragment:
-                    binding.bottomNav.setItemSelected(R.id.home, true);
-                    binding.bottomNav.setVisibility(View.VISIBLE);
-                    break;
-                case R.id.templatesFragment:
-                    binding.bottomNav.setItemSelected(R.id.templates, true);
-                    binding.bottomNav.setVisibility(View.VISIBLE);
-                    break;
-                case R.id.profileFragment:
-                    binding.bottomNav.setItemSelected(R.id.profile, true);
-                    binding.bottomNav.setVisibility(View.VISIBLE);
-                    break;
-                case R.id.moreFragment:
-                    binding.bottomNav.setItemSelected(R.id.more, true);
-                    binding.bottomNav.setVisibility(View.VISIBLE);
-                    break;
-                default:
-                    binding.bottomNav.setVisibility(View.GONE);
-                    break;
+            if (id == R.id.homeFragment) {
+                binding.bottomNav.setItemSelected(R.id.home, true);
+                binding.bottomNav.setVisibility(View.VISIBLE);
+            } else if (id == R.id.templatesFragment) {
+                binding.bottomNav.setItemSelected(R.id.templates, true);
+                binding.bottomNav.setVisibility(View.VISIBLE);
+            } else if (id == R.id.profileFragment) {
+                binding.bottomNav.setItemSelected(R.id.profile, true);
+                binding.bottomNav.setVisibility(View.VISIBLE);
+            } else if (id == R.id.moreFragment) {
+                binding.bottomNav.setItemSelected(R.id.more, true);
+                binding.bottomNav.setVisibility(View.VISIBLE);
+            } else {
+                binding.bottomNav.setVisibility(View.GONE);
             }
         });
 
