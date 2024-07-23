@@ -60,18 +60,60 @@
         android:layout_height="0dp"
         app:layout_constraintStart_toEndOf="@id/startGuide"
         app:layout_constraintTop_toBottomOf="@id/topGuideSecond"
+        app:layout_constraintBottom_toTopOf="@id/into_tab_layout"
         app:layout_constraintEnd_toEndOf="@id/endGuide"/>
 
     <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabLayout"
+        android:id="@+id/into_tab_layout"
         android:layout_width="match_parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        app:tabIndicatorColor="@color/strokeColor"
-        app:tabIndicatorHeight="4dp"
-        app:tabSelectedTextColor="@color/appColor"
-        app:tabTextColor="@color/textColor"/>
+        android:layout_gravity="bottom"
+        app:tabBackground="@drawable/tab_pager_selector"
+        app:layout_constraintBottom_toTopOf="@id/selectTemplate"
+        android:layout_marginBottom="@dimen/_5sdp"
+        app:tabGravity="center"
+        app:tabIndicatorHeight="0dp"
+        app:tabPaddingEnd="@dimen/_10sdp"
+        app:tabPaddingStart="@dimen/_10sdp" />
+
+
+    <ImageView
+        android:layout_width="@dimen/_45sdp"
+        android:layout_height="@dimen/_45sdp"
+        app:layout_constraintStart_toEndOf="@id/startGuide"
+        app:layout_constraintBottom_toTopOf="@id/bottomGuide"
+        app:layout_constraintEnd_toStartOf="@id/selectTemplate"
+        android:src="@drawable/icon_back"
+        android:rotation="180"
+        android:background="@drawable/button_back"
+        app:tint="@color/white"
+        android:padding="@dimen/_8sdp"
+        android:id="@+id/back"/>
+
+    <RelativeLayout
+        android:id="@+id/selectTemplate"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_45sdp"
+        android:background="@drawable/button_back"
+        app:layout_constraintStart_toEndOf="@id/back"
+        android:layout_marginStart="@dimen/_10sdp"
+        app:layout_constraintEnd_toStartOf="@id/endGuide"
+        android:paddingHorizontal="@dimen/_20sdp"
+        app:layout_constraintBottom_toTopOf="@id/bottomGuide">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Use this Template"
+            android:layout_centerInParent="true"
+            android:textSize="@dimen/_14sdp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/montserrat_medium"
+            android:layout_centerVertical="true"/>
+
+    </RelativeLayout>
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

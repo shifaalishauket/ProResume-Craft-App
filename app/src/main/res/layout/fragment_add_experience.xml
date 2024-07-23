@@ -56,9 +56,10 @@
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         app:layout_constraintStart_toEndOf="@id/startGuide"
         app:layout_constraintTop_toBottomOf="@id/topGuideSecond"
+        app:layout_constraintBottom_toTopOf="@id/submit"
         app:layout_constraintEnd_toStartOf="@id/endGuide">
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -167,9 +168,9 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/textColor"
                     android:hint="Start Date"
+                    android:focusable="false"
                     android:background="@drawable/edit_back"
                     android:drawableEnd="@drawable/icon_calender"
-                    android:enabled="false"
                     android:editable="false"
                     android:textSize="@dimen/_12sdp"
                     android:fontFamily="@font/montserrat_medium"
@@ -205,8 +206,8 @@
                     android:textColor="@color/textColor"
                     android:background="@drawable/edit_back"
                     android:drawableEnd="@drawable/icon_calender"
-                    android:enabled="false"
                     android:editable="false"
+                    android:focusable="false"
                     android:textSize="@dimen/_12sdp"
                     android:fontFamily="@font/montserrat_medium"
                     android:textColorHint="@color/strokeColor"/>

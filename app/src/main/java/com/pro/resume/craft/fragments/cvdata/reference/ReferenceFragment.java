@@ -3,19 +3,41 @@ package com.pro.resume.craft.fragments.cvdata.reference;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.navigation.fragment.NavHostFragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.pro.resume.craft.R;
+import com.pro.resume.craft.database.AppDatabase;
 import com.pro.resume.craft.databinding.FragmentProfileListBinding;
 import com.pro.resume.craft.databinding.FragmentReferenceBinding;
+import com.pro.resume.craft.fragments.cvdata.hobbies.HobbiesFragment;
+import com.pro.resume.craft.fragments.cvdata.qualification.EducationAdapter;
+import com.pro.resume.craft.models.DTOEducation;
+import com.pro.resume.craft.models.DTOReference;
+import com.pro.resume.craft.utils.SharedPreferencesHelper;
 
+import java.util.List;
+
+import javax.inject.Inject;
+
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
 public class ReferenceFragment extends Fragment {
 
     private FragmentReferenceBinding binding;
+
+    @Inject
+    AppDatabase appDatabase;
+
+    ReferenceAdapter referenceAdapter;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -23,5 +45,51 @@ public class ReferenceFragment extends Fragment {
         // Inflate the layout for this fragment
         binding = FragmentReferenceBinding.inflate(inflater, container, false);
         return binding.getRoot();
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        binding.recyclerView.setLayoutManager(new GridLayoutManager(requireContext(),2));
+        referenceAdapter = new ReferenceAdapter(new ReferenceAdapter.OnExperienceClickListener() {
+            @Override
+            public void onExperienceClick(DTOReference experience) {
+
+            }
+
+        });
+
+        binding.recyclerView.setAdapter(referenceAdapter);
+
+        String email = SharedPreferencesHelper.getString(requireContext(), "currentProfileId","");
+
+        appDatabase.userDao().getReferebceByEmail(email).observe(getViewLifecycleOwner(), new Observer<List<DTOReference>>() {
+            @Override
+            public void onChanged(List<DTOReference> experiences) {
+                if (experiences.isEmpty()){
+                    binding.noDataView.setVisibility(View.VISIBLE);
+                    binding.noDataText.setVisibility(View.VISIBLE);
+                }else{
+                    binding.noDataView.setVisibility(View.GONE);
+                    binding.noDataText.setVisibility(View.GONE);
+                    referenceAdapter.submitList(experiences); // Update the adapter with the new list
+                }
+            }
+        });
+
+        binding.add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavHostFragment.findNavController(ReferenceFragment.this).navigate(R.id.addReferenceFragment);
+            }
+        });
+
+        binding.back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavHostFragment.findNavController(ReferenceFragment.this).popBackStack();
+            }
+        });
     }
 }

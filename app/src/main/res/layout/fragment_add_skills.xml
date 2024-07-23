@@ -135,6 +135,7 @@
         app:cardCornerRadius="@dimen/_10sdp"
         app:strokeWidth="@dimen/_1sdp"
         android:layout_marginTop="@dimen/_10sdp"
+        app:cardBackgroundColor="@color/white"
         app:strokeColor="@color/strokeColor">
 
         <LinearLayout

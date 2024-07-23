@@ -16,6 +16,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.pro.resume.craft.R;
 import com.pro.resume.craft.databinding.FragmentSplashBinding;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
 public class SplashFragment extends Fragment {
 
     private FragmentSplashBinding binding;

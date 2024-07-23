@@ -11,6 +11,10 @@ import android.view.View;
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 import com.pro.resume.craft.databinding.ActivityMainBinding;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
+
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;

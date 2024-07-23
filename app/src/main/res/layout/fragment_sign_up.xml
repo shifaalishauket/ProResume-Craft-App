@@ -152,18 +152,6 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
-        android:id="@+id/signup"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Login?"
-        app:layout_constraintStart_toEndOf="@id/startGuide"
-        app:layout_constraintBottom_toTopOf="@id/back"
-        android:textColor="@color/textColor"
-        android:textSize="@dimen/_12sdp"
-        android:layout_marginBottom="@dimen/_5sdp"
-        android:fontFamily="@font/montserrat_medium"/>
-
     <ImageView
         android:layout_width="@dimen/_45sdp"
         android:layout_height="@dimen/_45sdp"

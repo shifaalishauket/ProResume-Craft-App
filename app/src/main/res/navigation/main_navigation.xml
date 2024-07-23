@@ -140,5 +140,10 @@
         android:name="com.pro.resume.craft.fragments.templates.TemplatesFragment"
         android:label="fragment_templates"
         tools:layout="@layout/fragment_templates" />
+    <fragment
+        android:id="@+id/previewResumeFragment"
+        android:name="com.pro.resume.craft.fragments.cvdata.viewcv.PreviewResumeFragment"
+        android:label="fragment_preview_resume"
+        tools:layout="@layout/fragment_preview_resume" />
 
 </navigation>

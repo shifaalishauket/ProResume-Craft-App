@@ -42,7 +42,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@id/profilePhotoCard"
             app:layout_constraintEnd_toStartOf="@id/options"
-            android:textColor="@color/textColor"
+            android:textColor="@color/white"
             android:textSize="@dimen/_12sdp"
             android:fontFamily="@font/montserrat_medium"/>
 

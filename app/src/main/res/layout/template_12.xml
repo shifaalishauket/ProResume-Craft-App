@@ -441,6 +441,7 @@
         android:text="www.cvgenerator.com"
         android:paddingEnd="@dimen/_5sdp"
         android:gravity="center_vertical"
+        android:visibility="gone"
         android:fontFamily="@font/montserrat_regular"
         android:layout_marginStart="@dimen/_10sdp"
         app:drawableTint="@color/white"

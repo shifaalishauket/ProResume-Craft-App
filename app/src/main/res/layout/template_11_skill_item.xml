@@ -27,6 +27,8 @@
         app:layout_constraintBottom_toBottomOf="@id/title"
         style="@style/Widget.AppCompat.ProgressBar.Horizontal"
         android:max="3"
+        android:id="@+id/progress"
+
         android:layout_marginStart="@dimen/_10sdp"
         android:background="@drawable/progress_bar_background_filled"
         android:backgroundTint="#272B33"

@@ -3,7 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
     xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/mainlayout"
+        >
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/percent5"
@@ -467,6 +474,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Website"
+        android:visibility="gone"
         android:gravity="center_horizontal"
         android:fontFamily="@font/montserrat_medium"
         app:layout_constraintTop_toBottomOf="@id/phone"
@@ -480,6 +488,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="www.thstshd.com"
+        android:visibility="gone"
         android:gravity="center_horizontal"
         android:fontFamily="@font/montserrat_regular"
         app:layout_constraintTop_toBottomOf="@id/webTitle"
@@ -805,5 +814,20 @@
         tools:itemCount="4"
         tools:listitem="@layout/text_only_item_view"
         app:spanCount="2"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:layout_width="@dimen/_45sdp"
+        android:layout_height="@dimen/_45sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/icon_add"
+        android:background="@drawable/button_back"
+        android:translationZ="@dimen/_30sdp"
+        app:tint="@color/white"
+        android:layout_margin="@dimen/_20sdp"
+        android:padding="@dimen/_15sdp"
+        android:id="@+id/add"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

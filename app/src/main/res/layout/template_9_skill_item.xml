@@ -32,6 +32,7 @@
         android:backgroundTint="@color/white"
         android:progressTint="#F68E30"
         android:progressDrawable="@drawable/template_7_curved_progress_bar"
+        android:id="@+id/progress"
         android:progress="1"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -37,6 +37,21 @@
         android:background="@color/black"
         app:layout_constraintStart_toEndOf="@id/date"
         android:layout_marginStart="@dimen/_5sdp"/>
+
+    <TextView
+        android:id="@+id/designation"
+        android:gravity="center_horizontal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="University of Lahore"
+        android:fontFamily="@font/montserrat_regular"
+        app:layout_constraintStart_toEndOf="@id/bullet"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        android:textSize="@dimen/_8sdp"
+        android:textStyle="italic"
+        android:visibility="gone"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:textColor="@color/textColor"/>
     <TextView
         android:id="@+id/date"
         android:gravity="center_horizontal"
@@ -61,7 +76,7 @@
         android:maxLines="2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/bullet"
-        app:layout_constraintTop_toBottomOf="@id/title"
+        app:layout_constraintTop_toBottomOf="@id/designation"
         android:textSize="@dimen/_6sdp"
         android:layout_marginTop="@dimen/_5sdp"
         android:textColor="@color/textColor"/>
