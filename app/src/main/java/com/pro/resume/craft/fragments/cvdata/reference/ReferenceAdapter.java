@@ -57,7 +57,7 @@ public class ReferenceAdapter extends RecyclerView.Adapter<ReferenceAdapter.Expe
             binding.title.setText(experience.getReffName());
             binding.subtitle.setText(experience.getReffDesignation());
             binding.date.setText(experience.getReffCompanyName());
-            binding.options.setOnClickListener(new View.OnClickListener() {
+            itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     clickListener.onExperienceClick(experience);

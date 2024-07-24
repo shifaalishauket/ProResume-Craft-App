@@ -19,6 +19,7 @@ import com.pro.resume.craft.R;
 import com.pro.resume.craft.database.AppDatabase;
 import com.pro.resume.craft.databinding.FragmentSetTemplateBinding;
 import com.pro.resume.craft.databinding.FragmentSplashBinding;
+import com.pro.resume.craft.fragments.profiles.ProfileFragment;
 import com.pro.resume.craft.models.DTOTemplate;
 import com.pro.resume.craft.utils.DepthPageTransformer;
 import com.pro.resume.craft.utils.SharedPreferencesHelper;
@@ -60,6 +61,7 @@ public class SetTemplateFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        Bundle bundle = getArguments();
         TemplateAdapter adapter = new TemplateAdapter(imageResources);
         binding.viewPager.setAdapter(adapter);
         CompositePageTransformer transformer = new CompositePageTransformer();
@@ -101,16 +103,18 @@ public class SetTemplateFragment extends Fragment {
                     appDatabase.userDao().insertTemplate(dtoTemplate);
                 }
 
-                NavHostFragment.findNavController(SetTemplateFragment.this).popBackStack();
+                NavHostFragment.findNavController(SetTemplateFragment.this).navigate(R.id.previewResumeFragment);
             }
         });
 
         binding.back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavHostFragment.findNavController(SetTemplateFragment.this).popBackStack();
+                NavHostFragment.findNavController(SetTemplateFragment.this).navigateUp();
             }
         });
+
+        binding.viewPager.setCurrentItem(bundle.getInt("position",0));
     }
 
     private int getLayoutResIdForPosition(int position) {

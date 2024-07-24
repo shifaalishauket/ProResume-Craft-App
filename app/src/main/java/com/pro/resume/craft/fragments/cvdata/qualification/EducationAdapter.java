@@ -58,7 +58,7 @@ public class EducationAdapter extends RecyclerView.Adapter<EducationAdapter.Expe
             binding.title.setText(experience.getDegree());
             binding.subtitle.setText(experience.getUniversity());
             binding.date.setText(experience.getStartDate() + " - " + experience.getEndDate());
-            binding.options.setOnClickListener(new View.OnClickListener() {
+            itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     clickListener.onExperienceClick(experience);

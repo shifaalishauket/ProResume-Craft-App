@@ -92,6 +92,8 @@
         android:layout_height="0dp"
         app:cardCornerRadius="@dimen/_10sdp"
         app:cardElevation="@dimen/_10sdp"
+        android:id="@+id/bgColors"
+        android:visibility="gone"
         app:cardBackgroundColor="@color/white"
         app:layout_constraintTop_toBottomOf="@id/topGuide"
         app:layout_constraintBottom_toBottomOf="parent"

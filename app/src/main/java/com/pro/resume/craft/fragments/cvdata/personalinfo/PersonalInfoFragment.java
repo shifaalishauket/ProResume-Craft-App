@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.bumptech.glide.Glide;
+import com.pro.resume.craft.R;
 import com.pro.resume.craft.database.AppDatabase;
 import com.pro.resume.craft.databinding.FragmentPersonalInfoBinding;
 import com.pro.resume.craft.models.DTOPersonalInfo;
@@ -117,6 +118,12 @@ public class PersonalInfoFragment extends Fragment {
             }
         });
 
+        binding.removeBg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavHostFragment.findNavController(PersonalInfoFragment.this).navigate(R.id.removerFragment);
+            }
+        });
         binding.back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -8,6 +8,7 @@ import androidx.room.RoomDatabase;
 import androidx.room.TypeConverters;
 
 import com.pro.resume.craft.database.dao.UserDao;
+import com.pro.resume.craft.models.DTOCoverLetter;
 import com.pro.resume.craft.models.DTOEducation;
 import com.pro.resume.craft.models.DTOExperience;
 import com.pro.resume.craft.models.DTOHobbies;
@@ -21,7 +22,7 @@ import com.pro.resume.craft.models.DTOTemplate;
 import com.pro.resume.craft.models.DTOlanguages;
 import com.pro.resume.craft.utils.BitmapTypeConverter;
 
-@Database(entities = {DTOProfile.class, DTOPersonalInfo.class, DTOObjective.class, DTOExperience.class, DTOEducation.class, DTOHobbies.class, DTOlanguages.class, DTOReference.class, DTOSkills.class, DTOTemplate.class, DTOSavedResumes.class}, version = 2)
+@Database(entities = {DTOProfile.class, DTOPersonalInfo.class, DTOObjective.class, DTOExperience.class, DTOEducation.class, DTOHobbies.class, DTOlanguages.class, DTOReference.class, DTOSkills.class, DTOTemplate.class, DTOSavedResumes.class, DTOCoverLetter.class}, version = 2)
 @TypeConverters({BitmapTypeConverter.class})
 public abstract class AppDatabase extends RoomDatabase {
 

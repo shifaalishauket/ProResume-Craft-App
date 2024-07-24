@@ -58,7 +58,7 @@ public class HobbiesAdapter extends RecyclerView.Adapter<HobbiesAdapter.Experien
             binding.title.setText(experience.getHobbyName());
             binding.subtitle.setVisibility(View.GONE);
             binding.date.setVisibility(View.GONE);
-            binding.options.setOnClickListener(new View.OnClickListener() {
+            itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     clickListener.onExperienceClick(experience);

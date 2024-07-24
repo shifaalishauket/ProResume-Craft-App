@@ -56,7 +56,7 @@ public class SkillsAdapter extends RecyclerView.Adapter<SkillsAdapter.Experience
             binding.title.setText(experience.getSkill());
             binding.subtitle.setText(experience.getLevel());
             binding.date.setVisibility(View.GONE);
-            binding.options.setOnClickListener(new View.OnClickListener() {
+            itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     clickListener.onExperienceClick(experience);
@@ -67,5 +67,6 @@ public class SkillsAdapter extends RecyclerView.Adapter<SkillsAdapter.Experience
 
     public interface OnExperienceClickListener {
         void onExperienceClick(DTOSkills experience);
+
     }
 }

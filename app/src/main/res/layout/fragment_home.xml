@@ -32,7 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.95" />
+        app:layout_constraintGuide_percent="0.999" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/topGuideSecond"
@@ -86,6 +86,7 @@
         android:src="@drawable/icon_add"
         android:background="@drawable/button_back"
         app:tint="@color/white"
+        android:layout_marginBottom="@dimen/_10sdp"
         android:padding="@dimen/_15sdp"
         android:id="@+id/add"/>
 
@@ -103,7 +104,7 @@
         android:id="@+id/noDataText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tap “+” to create CV"
+        android:text="Tap “+” to create Resume"
         android:fontFamily="@font/montserrat_light"
         app:layout_constraintStart_toEndOf="@id/startGuide"
         app:layout_constraintEnd_toStartOf="@id/endGuide"

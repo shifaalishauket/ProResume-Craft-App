@@ -6,7 +6,7 @@
     android:background="@color/white"
     android:id="@+id/mainlayout"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragments.home.CoverLetterPreviewFragment">
+    tools:context=".fragments.cvdata.coverletter.CoverLetterPreviewFragment">
 
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"

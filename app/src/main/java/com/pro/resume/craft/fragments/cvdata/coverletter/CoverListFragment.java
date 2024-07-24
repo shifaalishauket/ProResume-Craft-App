@@ -1,4 +1,4 @@
-package com.pro.resume.craft.fragments.home;
+package com.pro.resume.craft.fragments.cvdata.coverletter;
 
 import android.os.Bundle;
 
@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
+import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 
@@ -15,8 +16,12 @@ import android.view.ViewGroup;
 
 import com.pro.resume.craft.R;
 import com.pro.resume.craft.database.AppDatabase;
-import com.pro.resume.craft.databinding.FragmentHomeBinding;
+import com.pro.resume.craft.databinding.FragmentCoverListBinding;
+import com.pro.resume.craft.fragments.home.CVOptionsSheet;
+import com.pro.resume.craft.fragments.home.HomeFragment;
+import com.pro.resume.craft.fragments.home.ResumePreviewAdapter;
 import com.pro.resume.craft.fragments.profiles.ProfileFragment;
+import com.pro.resume.craft.models.DTOCoverLetter;
 import com.pro.resume.craft.models.DTOSavedResumes;
 import com.pro.resume.craft.utils.SharedPreferencesHelper;
 
@@ -27,19 +32,20 @@ import javax.inject.Inject;
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
-public class HomeFragment extends Fragment {
-   private FragmentHomeBinding binding;
+public class CoverListFragment extends Fragment {
 
-   @Inject
+    private FragmentCoverListBinding binding;
+
+    @Inject
     AppDatabase appDatabase;
 
-   ResumePreviewAdapter resumePreviewAdapter;
+    CoverPreviewAdapter coverPreviewAdapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        binding = FragmentHomeBinding.inflate(inflater, container, false);
+        binding = FragmentCoverListBinding.inflate(getLayoutInflater(),container,false);
         return binding.getRoot();
     }
 
@@ -50,23 +56,31 @@ public class HomeFragment extends Fragment {
 
         binding.recyclerView.setLayoutManager(new GridLayoutManager(requireContext(),2));
 
-        resumePreviewAdapter = new ResumePreviewAdapter(new ResumePreviewAdapter.OnExperienceClickListener() {
+        coverPreviewAdapter = new CoverPreviewAdapter(new CoverPreviewAdapter.OnCoverClickListener() {
             @Override
-            public void onExperienceClick(DTOSavedResumes dtoSavedResumes) {
-                showBottomSheet(dtoSavedResumes);
+            public void onCoverClick(DTOCoverLetter coverLetter) {
+                showBottomSheet(coverLetter);
+            }
+        });
+
+        binding.back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(requireView()).navigateUp();
             }
         });
 
         binding.add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavHostFragment.findNavController(HomeFragment.this).navigate(R.id.setTemplateFragment);
+                NavHostFragment.findNavController(CoverListFragment.this).navigate(R.id.AICoverFragment);
             }
         });
-        binding.recyclerView.setAdapter(resumePreviewAdapter);
-        appDatabase.userDao().getSavedResumes(email).observe(getViewLifecycleOwner(), new Observer<List<DTOSavedResumes>>() {
+
+        binding.recyclerView.setAdapter(coverPreviewAdapter);
+        appDatabase.userDao().findCoverByEmail(email).observe(getViewLifecycleOwner(), new Observer<List<DTOCoverLetter>>() {
             @Override
-            public void onChanged(List<DTOSavedResumes> experiences) {
+            public void onChanged(List<DTOCoverLetter> experiences) {
                 if (experiences.isEmpty()){
                     binding.noDataView.setVisibility(View.VISIBLE);
                     binding.noDataText.setVisibility(View.VISIBLE);
@@ -75,15 +89,15 @@ public class HomeFragment extends Fragment {
                     binding.noDataText.setVisibility(View.GONE); // Update the adapter with the new list
                 }
 
-                resumePreviewAdapter.submitList(experiences);
+                coverPreviewAdapter.submitList(experiences);
             }
         });
 
 
     }
-    private void showBottomSheet(DTOSavedResumes cvData) {
-        CVOptionsSheet bottomSheet = new CVOptionsSheet();
-        bottomSheet.setCVData(cvData);
+    private void showBottomSheet(DTOCoverLetter cvData) {
+        CoverOptionsSheet bottomSheet = new CoverOptionsSheet();
+        bottomSheet.setCoverData(cvData);
         bottomSheet.show(getFragmentManager(), bottomSheet.getTag());
     }
 }

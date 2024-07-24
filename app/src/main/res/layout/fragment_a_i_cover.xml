@@ -98,27 +98,40 @@
             android:layout_height="match_parent">
 
             <EditText
+                android:id="@+id/outputTV"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:gravity="start"
-                android:text=""
-                android:textSize="@dimen/_12sdp"
                 android:layout_marginHorizontal="@dimen/_10sdp"
                 android:layout_marginVertical="@dimen/_7sdp"
-                app:layout_constraintTop_toTopOf="parent"
-                android:lines="15"
+                android:layout_marginTop="12dp"
                 android:background="@color/white"
-                android:id="@+id/outputTV"
-                android:textColor="@color/textColor"
                 android:fontFamily="@font/montserrat_medium"
-                />
+                android:gravity="start"
+                android:text=""
+                app:layout_constraintBottom_toTopOf="@id/btnBg"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/_12sdp"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:layout_editor_absoluteX="13dp" />
 
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:indeterminate="true"
+                android:visibility="gone"
+                android:indeterminateTint="@color/appColor"
+                android:id="@+id/progress"/>
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="@dimen/_50sdp"
                 android:text="Apply Template"
                 android:background="@color/appColor"
                 android:textColor="@color/white"
+                android:visibility="gone"
                 app:layout_constraintWidth_percent="0.5"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:drawableStart="@drawable/icon_temp"
@@ -135,7 +148,7 @@
             <View
                 android:layout_width="0dp"
                 android:layout_height="@dimen/_50sdp"
-                app:layout_constraintWidth_percent="0.5"
+                app:layout_constraintStart_toEndOf="@id/applyTmpBtn"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:background="@color/appColor"
@@ -178,6 +191,7 @@
                     android:layout_height="32dp"
                     android:src="@drawable/icon_regenerate"
                     android:id="@+id/retry"
+                    android:visibility="gone"
                     android:background="?selectableItemBackground"/>
                 <ImageView
                     android:layout_weight="1"
@@ -197,7 +211,6 @@
         android:layout_height="@dimen/_45sdp"
         app:layout_constraintStart_toEndOf="@id/startGuide"
         app:layout_constraintBottom_toTopOf="@id/bottomGuide"
-        app:layout_constraintEnd_toStartOf="@id/submit"
         android:src="@drawable/icon_back"
         android:rotation="180"
         android:background="@drawable/button_back"

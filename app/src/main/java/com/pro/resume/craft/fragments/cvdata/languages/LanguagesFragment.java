@@ -1,5 +1,6 @@
 package com.pro.resume.craft.fragments.cvdata.languages;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.pro.resume.craft.R;
 import com.pro.resume.craft.database.AppDatabase;
@@ -59,7 +61,7 @@ public class LanguagesFragment extends Fragment {
         languagesAdapter = new LanguagesAdapter(new LanguagesAdapter.OnExperienceClickListener() {
             @Override
             public void onExperienceClick(DTOlanguages experience) {
-
+                showCustomDialog(experience.getId());
             }
 
         });
@@ -75,8 +77,8 @@ public class LanguagesFragment extends Fragment {
                 }else{
                     binding.noDataView.setVisibility(View.GONE);
                     binding.noDataText.setVisibility(View.GONE);
-                    languagesAdapter.submitList(experiences); // Update the adapter with the new list
                 }
+                languagesAdapter.submitList(experiences); // Update the adapter with the new list
             }
         });
         binding.add.setOnClickListener(new View.OnClickListener() {
@@ -93,4 +95,39 @@ public class LanguagesFragment extends Fragment {
             }
         });
     }
+
+    private void showCustomDialog(int id) {
+        // Inflate the custom layout
+        LayoutInflater inflater = getLayoutInflater();
+        View dialogView = inflater.inflate(R.layout.dialog_confirm_delete, null);
+
+        // Create the AlertDialog
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(requireContext());
+        dialogBuilder.setView(dialogView);
+        AlertDialog alertDialog = dialogBuilder.create();
+
+        // Get references to the views in the custom layout
+        TextView dismiss = dialogView.findViewById(R.id.dismiss);
+        TextView delete = dialogView.findViewById(R.id.delete);
+
+        // Set the click listener for the positive button
+        dismiss.setOnClickListener(v -> {
+            // Handle positive button click
+            alertDialog.dismiss();
+        });
+
+        // Set the click listener for the negative button
+        delete.setOnClickListener(v -> {
+            // Handle negative button click
+
+            appDatabase.userDao().deleteLanguageById(id);
+            alertDialog.dismiss();
+        });
+
+        // Show the dialog
+        alertDialog.show();
+        alertDialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+
+    }
+
 }

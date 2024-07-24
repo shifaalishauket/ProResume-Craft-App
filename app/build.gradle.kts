@@ -80,7 +80,7 @@ dependencies {
 
     implementation ("com.google.code.gson:gson:2.10.1")
 
-
+    implementation ("com.github.erenalpaslan:removebg:1.0.4")
 
 }
 

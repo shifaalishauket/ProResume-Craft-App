@@ -32,7 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.95" />
+        app:layout_constraintGuide_percent="0.99" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/topGuideSecond"
@@ -62,6 +62,7 @@
         app:layout_constraintEnd_toStartOf="@id/aiCover"
         app:layout_constraintTop_toTopOf="@id/aiCover"
         android:layout_marginEnd="@dimen/_10sdp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@id/aiCover"
         app:tint="@color/appColor"
         />
@@ -74,6 +75,7 @@
         app:layout_constraintEnd_toStartOf="@id/viewResume"
         app:layout_constraintTop_toTopOf="@id/aiCover"
         android:layout_marginEnd="@dimen/_10sdp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@id/aiCover"
         app:tint="@color/appColor" />
 
@@ -92,6 +94,19 @@
             android:layout_height="wrap_content"
             android:src="@drawable/icon_ai"
             android:id="@+id/ai"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="AI Cover"
+            android:layout_marginStart="@dimen/_5sdp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/profession"
+            app:layout_constraintStart_toEndOf="@id/profilePhotoCard"
+            app:layout_constraintEnd_toStartOf="@id/forward"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/_14sdp"
+            android:fontFamily="@font/montserrat_medium"/>
     </LinearLayout>
 
     <com.google.android.material.card.MaterialCardView
@@ -155,18 +170,6 @@
                 android:textSize="@dimen/_10sdp"
                 android:layout_marginBottom="@dimen/_15sdp"
                 android:fontFamily="@font/montserrat_medium"/>
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/icon_forward"
-                android:id="@+id/forward"
-                android:layout_marginEnd="@dimen/_5sdp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:tint="@color/strokeColor"
-                android:rotation="90"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>

@@ -1,5 +1,6 @@
 package com.pro.resume.craft.fragments.cvdata.reference;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.pro.resume.craft.R;
 import com.pro.resume.craft.database.AppDatabase;
@@ -55,7 +57,7 @@ public class ReferenceFragment extends Fragment {
         referenceAdapter = new ReferenceAdapter(new ReferenceAdapter.OnExperienceClickListener() {
             @Override
             public void onExperienceClick(DTOReference experience) {
-
+                showCustomDialog(experience.getId());
             }
 
         });
@@ -73,8 +75,8 @@ public class ReferenceFragment extends Fragment {
                 }else{
                     binding.noDataView.setVisibility(View.GONE);
                     binding.noDataText.setVisibility(View.GONE);
-                    referenceAdapter.submitList(experiences); // Update the adapter with the new list
                 }
+                referenceAdapter.submitList(experiences); // Update the adapter with the new list
             }
         });
 
@@ -91,5 +93,39 @@ public class ReferenceFragment extends Fragment {
                 NavHostFragment.findNavController(ReferenceFragment.this).popBackStack();
             }
         });
+    }
+
+    private void showCustomDialog(int id) {
+        // Inflate the custom layout
+        LayoutInflater inflater = getLayoutInflater();
+        View dialogView = inflater.inflate(R.layout.dialog_confirm_delete, null);
+
+        // Create the AlertDialog
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(requireContext());
+        dialogBuilder.setView(dialogView);
+        AlertDialog alertDialog = dialogBuilder.create();
+
+        // Get references to the views in the custom layout
+        TextView dismiss = dialogView.findViewById(R.id.dismiss);
+        TextView delete = dialogView.findViewById(R.id.delete);
+
+        // Set the click listener for the positive button
+        dismiss.setOnClickListener(v -> {
+            // Handle positive button click
+            alertDialog.dismiss();
+        });
+
+        // Set the click listener for the negative button
+        delete.setOnClickListener(v -> {
+            // Handle negative button click
+
+            appDatabase.userDao().deleteReferenceById(id);
+            alertDialog.dismiss();
+        });
+
+        // Show the dialog
+        alertDialog.show();
+        alertDialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+
     }
 }

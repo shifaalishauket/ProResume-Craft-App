@@ -6,6 +6,7 @@ import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
+import com.pro.resume.craft.models.DTOCoverLetter;
 import com.pro.resume.craft.models.DTOEducation;
 import com.pro.resume.craft.models.DTOExperience;
 import com.pro.resume.craft.models.DTOHobbies;
@@ -25,8 +26,20 @@ public interface UserDao {
     @Insert
     void insert(DTOProfile user);
 
+    @Query("DELETE FROM profiles WHERE email =:email")
+    void deleteProfileById(String email);
+
     @Query("SELECT * FROM profiles WHERE email =:email")
     DTOProfile findByEmail(String email);
+
+    @Insert
+    void insertCoverLetter(DTOCoverLetter coverLetter);
+
+    @Query("DELETE FROM cover WHERE email =:email")
+    void deleteCoverByEmail(String email);
+
+    @Query("SELECT * FROM cover WHERE email =:email")
+    LiveData<List<DTOCoverLetter>> findCoverByEmail(String email);
 
 
     @Insert

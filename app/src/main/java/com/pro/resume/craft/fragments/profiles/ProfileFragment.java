@@ -101,8 +101,7 @@ public class ProfileFragment extends Fragment {
         binding.aiCover.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavHostFragment.findNavController(ProfileFragment.this).navigate(R.id.AICoverFragment);
-//                startWriting();
+                NavHostFragment.findNavController(ProfileFragment.this).navigate(R.id.coverListFragment);
             }
         });
 

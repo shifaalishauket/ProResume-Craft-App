@@ -147,8 +147,13 @@
         tools:layout="@layout/fragment_preview_resume" />
     <fragment
         android:id="@+id/coverLetterPreviewFragment"
-        android:name="com.pro.resume.craft.fragments.home.CoverLetterPreviewFragment"
+        android:name="com.pro.resume.craft.fragments.cvdata.coverletter.CoverLetterPreviewFragment"
         android:label="fragment_cover_letter_preview"
         tools:layout="@layout/fragment_cover_letter_preview" />
+    <fragment
+        android:id="@+id/coverListFragment"
+        android:name="com.pro.resume.craft.fragments.cvdata.coverletter.CoverListFragment"
+        android:label="fragment_cover_list"
+        tools:layout="@layout/fragment_cover_list" />
 
 </navigation>

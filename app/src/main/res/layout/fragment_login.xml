@@ -133,7 +133,6 @@
         android:layout_height="@dimen/_45sdp"
         android:background="@drawable/button_back"
         app:layout_constraintStart_toEndOf="@id/startGuide"
-        android:layout_marginStart="@dimen/_10sdp"
         app:layout_constraintEnd_toStartOf="@id/endGuide"
         android:paddingHorizontal="@dimen/_20sdp"
         app:layout_constraintBottom_toTopOf="@id/bottomGuide">

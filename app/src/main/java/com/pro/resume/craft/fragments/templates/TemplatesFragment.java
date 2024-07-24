@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 
 import android.view.LayoutInflater;
@@ -14,6 +15,7 @@ import android.view.ViewGroup;
 import com.pro.resume.craft.R;
 import com.pro.resume.craft.databinding.FragmentSetTemplateBinding;
 import com.pro.resume.craft.databinding.FragmentTemplatesBinding;
+import com.pro.resume.craft.fragments.profiles.ProfileFragment;
 
 import dagger.hilt.android.AndroidEntryPoint;
 
@@ -51,7 +53,14 @@ public class TemplatesFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        adapter = new ImageGridAdapter(imageResources);
+        adapter = new ImageGridAdapter(imageResources, new ImageGridAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                Bundle bundle = new Bundle();
+                bundle.putInt("position", position);
+                NavHostFragment.findNavController(TemplatesFragment.this).navigate(R.id.setTemplateFragment, bundle);
+            }
+        });
 
         binding.recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
         binding.recyclerView.setAdapter(adapter);

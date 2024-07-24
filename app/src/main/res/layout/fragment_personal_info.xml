@@ -54,6 +54,36 @@
         android:textSize="@dimen/_24sdp"
         android:fontFamily="@font/montserrat_medium"/>
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@id/endGuide"
+        app:layout_constraintTop_toTopOf="@id/title"
+        app:layout_constraintBottom_toBottomOf="@id/title"
+        android:id="@+id/removeBg"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_remove"
+            android:id="@+id/ai"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Remove Profile BG"
+            android:layout_marginStart="@dimen/_5sdp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/profession"
+            app:layout_constraintStart_toEndOf="@id/profilePhotoCard"
+            app:layout_constraintEnd_toStartOf="@id/forward"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/_14sdp"
+            android:fontFamily="@font/montserrat_medium"/>
+    </LinearLayout>
+
+
     <ImageView
         android:layout_width="@dimen/_45sdp"
         android:layout_height="@dimen/_45sdp"

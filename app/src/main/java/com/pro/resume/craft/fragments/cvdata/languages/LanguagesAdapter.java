@@ -58,7 +58,7 @@ public class LanguagesAdapter extends RecyclerView.Adapter<LanguagesAdapter.Expe
             binding.title.setText(experience.getLanguageName());
             binding.subtitle.setText(experience.getLanguageLevel());
             binding.date.setVisibility(View.GONE);
-            binding.options.setOnClickListener(new View.OnClickListener() {
+            itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     clickListener.onExperienceClick(experience);

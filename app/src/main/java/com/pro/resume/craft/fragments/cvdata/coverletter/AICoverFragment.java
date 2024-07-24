@@ -46,6 +46,7 @@ import retrofit2.Callback;
 public class AICoverFragment extends Fragment {
 
     private FragmentAICoverBinding binding;
+    String prompt = "";
 
     @Inject
     AppDatabase appDatabase;
@@ -62,18 +63,19 @@ public class AICoverFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-
+        prompt = startWriting();
+        binding.outputTV.setText(prompt);
         binding.submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startWriting();
+                getResponseRetro(binding.outputTV.getText().toString());
             }
         });
 
         binding.retry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startWriting();
+                getResponseRetro(prompt);
             }
         });
 
@@ -110,19 +112,16 @@ public class AICoverFragment extends Fragment {
         });
     }
 
-    private void startWriting() {
-        if (!NetworkUtils.isInternetAvailable(requireContext())) {
-            Toast.makeText(requireContext(), "No internet connection", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        String email = SharedPreferencesHelper.getString(requireContext(), "currentProfileId","");
+    private String startWriting(){
 
+        String email = SharedPreferencesHelper.getString(requireContext(), "currentProfileId","");
+        String output = "";
         DTOPersonalInfo dtoPersonalInfo = appDatabase.userDao().getPersonalInfo(email);
         ArrayList<DTOExperience> experiences = (ArrayList<DTOExperience>) appDatabase.userDao().getAllExperience(email);
-        String coverLetterPrompt = generateCoverLetter(dtoPersonalInfo.getFirstName(), dtoPersonalInfo.getLastName(), dtoPersonalInfo.getProfession(), experiences);
-
-        getResponseRetro(coverLetterPrompt);
-
+        if (dtoPersonalInfo!=null){
+            output = generateCoverLetter(dtoPersonalInfo.getFirstName(), dtoPersonalInfo.getLastName(), dtoPersonalInfo.getProfession(), experiences);
+        }
+        return output;
     }
 
     public String generateCoverLetter(String firstName, String lastName, String profession, List<DTOExperience> experiences) {
@@ -147,6 +146,7 @@ public class AICoverFragment extends Fragment {
 
     private void getResponseRetro(String userMessage) {
         if (NetworkUtils.isInternetAvailable(requireContext())) {
+            binding.progress.setVisibility(View.VISIBLE);
             OpenAiApi openAiApi = RetrofitClient.getRetrofitInstance(requireContext()).create(OpenAiApi.class);
 
             OpenAiRequest.Message systemMessage = new OpenAiRequest.Message("system", "You are a helpful assistant.");
@@ -167,6 +167,11 @@ public class AICoverFragment extends Fragment {
                             String responseText = openAiResponse.getChoices().get(0).getMessage().getContent();
 
                             binding.outputTV.setText(responseText);
+                            binding.submit.setVisibility(View.GONE);
+                            binding.applyTmpBtn.setVisibility(View.VISIBLE);
+                            binding.retry.setVisibility(View.VISIBLE);
+
+                            binding.progress.setVisibility(View.GONE);
                             Log.e("TAG", "onResponse: " + responseText);
                         } else {
                             Log.e("OpenAiApi", "No response from API");
@@ -178,6 +183,9 @@ public class AICoverFragment extends Fragment {
 
                 @Override
                 public void onFailure(Call<OpenAiResponse> call, Throwable t) {
+
+                    binding.progress.setVisibility(View.GONE);
+                    Toast.makeText(requireActivity(), "An error occurred", Toast.LENGTH_SHORT).show();
                     Log.e("OpenAiApi", "Error: " + t.getMessage());
                 }
             });
