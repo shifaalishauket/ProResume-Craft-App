@@ -109,7 +109,6 @@ public class ProfileListFragment extends Fragment {
                                     appDatabase.userDao().insert(profile);
                                 }
 
-
                                 if (profile != null) {
                                     profileList.add(profile);
                                 }

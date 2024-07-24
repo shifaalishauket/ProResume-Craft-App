@@ -12,11 +12,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.pro.resume.craft.R;
 import com.pro.resume.craft.database.AppDatabase;
 import com.pro.resume.craft.databinding.FragmentHomeBinding;
-import com.pro.resume.craft.databinding.FragmentProfileListBinding;
-import com.pro.resume.craft.models.DTOExperience;
 import com.pro.resume.craft.models.DTOSavedResumes;
 import com.pro.resume.craft.utils.SharedPreferencesHelper;
 
@@ -53,7 +50,7 @@ public class HomeFragment extends Fragment {
         resumePreviewAdapter = new ResumePreviewAdapter(new ResumePreviewAdapter.OnExperienceClickListener() {
             @Override
             public void onExperienceClick(DTOSavedResumes dtoSavedResumes) {
-
+                showBottomSheet(dtoSavedResumes);
             }
         });
         binding.recyclerView.setAdapter(resumePreviewAdapter);
@@ -65,12 +62,18 @@ public class HomeFragment extends Fragment {
                     binding.noDataText.setVisibility(View.VISIBLE);
                 }else{
                     binding.noDataView.setVisibility(View.GONE);
-                    binding.noDataText.setVisibility(View.GONE);
-                    resumePreviewAdapter.submitList(experiences); // Update the adapter with the new list
+                    binding.noDataText.setVisibility(View.GONE); // Update the adapter with the new list
                 }
+
+                resumePreviewAdapter.submitList(experiences);
             }
         });
 
 
+    }
+    private void showBottomSheet(DTOSavedResumes cvData) {
+        CVOptionsSheet bottomSheet = new CVOptionsSheet();
+        bottomSheet.setCVData(cvData);
+        bottomSheet.show(getFragmentManager(), bottomSheet.getTag());
     }
 }

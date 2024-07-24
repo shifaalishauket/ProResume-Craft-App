@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:id="@+id/mainlayout"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.home.CoverLetterPreviewFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/mainlayout"
-        >
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/parentLayout">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/percent5"
@@ -286,7 +287,7 @@
         android:id="@+id/personalInfoPortion"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/percent65"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:background="#2C2931"/>
 
@@ -379,320 +380,25 @@
             android:scaleType="centerCrop"/>
     </com.google.android.material.card.MaterialCardView>
 
-    <TextView
-        android:id="@+id/objTitle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Objective"
-        android:gravity="center_horizontal"
-        android:fontFamily="@font/montserrat_medium"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/profileCard"
-        app:layout_constraintEnd_toStartOf="@id/personalInfoPortion"
-        android:textSize="@dimen/_8sdp"
-        android:background="#F7902B"
-        android:paddingVertical="@dimen/_2sdp"
-        android:paddingHorizontal="@dimen/_5sdp"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:layout_marginHorizontal="@dimen/_15sdp"
-        android:textColor="@color/white"/>
-
-    <TextView
-        android:id="@+id/objective"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Professional [Your Profession] with [number] years of experience in [key skills or industries]. Seeking a [desired position] at [Company Name] to [what you aim to achieve or contribute], leveraging my [specific skills or expertise] to [desired outcome]."
-        android:fontFamily="@font/montserrat_regular"
-        android:textSize="@dimen/_6sdp"
-        android:maxLines="6"
-        app:layout_constraintStart_toStartOf="@id/objTitle"
-        app:layout_constraintTop_toBottomOf="@id/objTitle"
-        app:layout_constraintEnd_toEndOf="@id/objTitle"
-        android:layout_marginTop="@dimen/_5sdp"
-        android:textColor="@color/textColor"/>
-
-    <TextView
-        android:id="@+id/eduTitle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Education"
-        android:gravity="center_horizontal"
-        android:fontFamily="@font/montserrat_medium"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/objective"
-        app:layout_constraintEnd_toStartOf="@id/personalInfoPortion"
-        android:textSize="@dimen/_8sdp"
-        android:background="#F7902B"
-        android:paddingVertical="@dimen/_2sdp"
-        android:paddingHorizontal="@dimen/_5sdp"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:layout_marginHorizontal="@dimen/_15sdp"
-        android:textColor="@color/white"/>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/educationRV"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/eduTitle"
-        app:layout_constraintTop_toBottomOf="@id/eduTitle"
-        app:layout_constraintEnd_toEndOf="@id/eduTitle"
-        android:layout_marginTop="@dimen/_5sdp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:itemCount="3"
-        tools:listitem="@layout/template_3_edu_item"
-        app:spanCount="2"/>
-
-    <TextView
-        android:id="@+id/expTitle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Experience"
-        android:gravity="center_horizontal"
-        android:fontFamily="@font/montserrat_medium"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/educationRV"
-        app:layout_constraintEnd_toStartOf="@id/personalInfoPortion"
-        android:textSize="@dimen/_8sdp"
-        android:background="#F7902B"
-        android:paddingVertical="@dimen/_2sdp"
-        android:paddingHorizontal="@dimen/_5sdp"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:layout_marginHorizontal="@dimen/_15sdp"
-        android:textColor="@color/white"/>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/experienceRV"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/expTitle"
-        app:layout_constraintTop_toBottomOf="@id/expTitle"
-        app:layout_constraintEnd_toEndOf="@id/expTitle"
-        android:layout_marginTop="@dimen/_5sdp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:itemCount="3"
-        tools:listitem="@layout/template_3_edu_item"
-        app:spanCount="2"/>
-
-    <TextView
-        android:id="@+id/refTitle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="References"
-        android:gravity="center_horizontal"
-        android:fontFamily="@font/montserrat_medium"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/experienceRV"
-        app:layout_constraintEnd_toStartOf="@id/personalInfoPortion"
-        android:textSize="@dimen/_8sdp"
-        android:background="#F7902B"
-        android:paddingVertical="@dimen/_2sdp"
-        android:paddingHorizontal="@dimen/_5sdp"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:layout_marginHorizontal="@dimen/_15sdp"
-        android:textColor="@color/white"/>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/referenceRV"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/refTitle"
-        app:layout_constraintTop_toBottomOf="@id/refTitle"
-        app:layout_constraintEnd_toEndOf="@id/refTitle"
-        android:layout_marginTop="@dimen/_5sdp"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        tools:itemCount="2"
-        tools:listitem="@layout/template_3_ref_item"
-        app:spanCount="2"/>
-
-    <TextView
-        android:id="@+id/contactTitle"
-        android:gravity="center_horizontal"
-        android:layout_marginHorizontal="@dimen/_15sdp"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Contact"
-        android:fontFamily="@font/montserrat_medium"
-        app:layout_constraintStart_toStartOf="@id/personalInfoPortion"
-        app:layout_constraintEnd_toEndOf="@id/personalInfoPortion"
-        app:layout_constraintTop_toBottomOf="@id/namePortion"
-        android:textSize="@dimen/_8sdp"
-        android:textColor="@color/white"
-        android:paddingVertical="@dimen/_2sdp"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:background="@drawable/template_3_title_bg"/>
-
-    <TextView
-        android:id="@+id/address"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="715 Arington Avenue Oak ridge, Tn 35785"
-        android:fontFamily="@font/montserrat_regular"
-        android:layout_marginStart="@dimen/_5sdp"
-        app:drawableTint="#F7902B"
-        app:layout_constraintStart_toStartOf="@+id/contactTitle"
-        app:layout_constraintTop_toBottomOf="@id/contactTitle"
-        app:layout_constraintEnd_toEndOf="@id/personalInfoPortion"
-        android:textSize="@dimen/_6sdp"
-        android:textColor="@color/white"
-        android:gravity="center_vertical"
-        android:drawableStart="@drawable/ic_address"
-        android:drawablePadding="@dimen/_10sdp"
-        android:layout_marginTop="@dimen/_10sdp"/>
-
-    <TextView
-        android:id="@+id/phone"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="0306 5489597"
-        android:gravity="center_vertical"
-        android:fontFamily="@font/montserrat_regular"
-        android:layout_marginStart="@dimen/_5sdp"
-        app:drawableTint="#F7902B"
-        app:layout_constraintStart_toStartOf="@+id/contactTitle"
-        app:layout_constraintTop_toBottomOf="@id/address"
-        app:layout_constraintEnd_toEndOf="@id/personalInfoPortion"
-        android:textSize="@dimen/_6sdp"
-        android:textColor="@color/white"
-        android:drawableStart="@drawable/ic_phone"
-        android:drawablePadding="@dimen/_10sdp"
-        android:layout_marginTop="@dimen/_7sdp"/>
-
-    <TextView
-        android:id="@+id/email"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="784598@gmail.com"
-        android:paddingEnd="@dimen/_5sdp"
-        android:gravity="center_vertical"
-        android:fontFamily="@font/montserrat_regular"
-        android:layout_marginStart="@dimen/_5sdp"
-        app:drawableTint="#F7902B"
-        app:layout_constraintStart_toStartOf="@+id/contactTitle"
-        app:layout_constraintTop_toBottomOf="@id/phone"
-        app:layout_constraintEnd_toEndOf="@id/personalInfoPortion"
-        android:textSize="@dimen/_6sdp"
-        android:textColor="@color/white"
-        android:drawableStart="@drawable/ic_email"
-        android:drawablePadding="@dimen/_10sdp"
-        android:layout_marginTop="@dimen/_7sdp"/>
-
-    <TextView
-        android:id="@+id/website"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="www.cvgenerator.com"
-        android:paddingEnd="@dimen/_5sdp"
-        android:visibility="gone"
-        android:gravity="center_vertical"
-        android:fontFamily="@font/montserrat_regular"
-        android:layout_marginStart="@dimen/_5sdp"
-        app:drawableTint="#F7902B"
-        app:layout_constraintStart_toStartOf="@+id/contactTitle"
-        app:layout_constraintTop_toBottomOf="@id/email"
-        app:layout_constraintEnd_toEndOf="@id/personalInfoPortion"
-        android:textSize="@dimen/_6sdp"
-        android:textColor="@color/white"
-        android:drawableStart="@drawable/ic_web"
-        android:drawablePadding="@dimen/_10sdp"
-        android:layout_marginTop="@dimen/_7sdp"/>
-
-    <TextView
-        android:id="@+id/langTitle"
-        android:gravity="center_horizontal"
-        android:layout_marginHorizontal="@dimen/_15sdp"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Language"
-        android:fontFamily="@font/montserrat_medium"
-        app:layout_constraintStart_toStartOf="@id/personalInfoPortion"
-        app:layout_constraintEnd_toEndOf="@id/personalInfoPortion"
-        app:layout_constraintTop_toBottomOf="@id/website"
-        android:layout_marginTop="@dimen/_5sdp"
-        android:textSize="@dimen/_8sdp"
-        android:textColor="@color/white"
-        android:paddingVertical="@dimen/_2sdp"
-        android:background="@drawable/template_3_title_bg"/>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/languagesRV"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/personalInfoPortion"
-        app:layout_constraintEnd_toEndOf="@id/personalInfoPortion"
-        app:layout_constraintTop_toBottomOf="@id/langTitle"
-        android:layout_marginTop="@dimen/_5sdp"
-        android:layout_marginHorizontal="@dimen/_7sdp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:itemCount="4"
-        tools:listitem="@layout/template_3_skill_item"
-        app:spanCount="2"/>
-
-    <TextView
-        android:id="@+id/skillsTitle"
-        android:gravity="center_horizontal"
-        android:layout_marginHorizontal="@dimen/_15sdp"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Skills"
-        android:fontFamily="@font/montserrat_medium"
-        app:layout_constraintStart_toStartOf="@id/personalInfoPortion"
-        app:layout_constraintEnd_toEndOf="@id/personalInfoPortion"
-        app:layout_constraintTop_toBottomOf="@id/languagesRV"
-        android:layout_marginTop="@dimen/_5sdp"
-        android:textSize="@dimen/_8sdp"
-        android:textColor="@color/white"
-        android:paddingVertical="@dimen/_2sdp"
-        android:background="@drawable/template_3_title_bg"/>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/skillsRV"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/personalInfoPortion"
-        app:layout_constraintEnd_toEndOf="@id/personalInfoPortion"
-        app:layout_constraintTop_toBottomOf="@id/skillsTitle"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:layout_marginHorizontal="@dimen/_7sdp"
-        android:layout_marginBottom="@dimen/_20sdp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:itemCount="4"
-        tools:listitem="@layout/template_3_skill_item"
-        app:spanCount="2"/>
-
-    <TextView
-        android:id="@+id/hobbiesTitle"
-        android:gravity="center_horizontal"
-        android:layout_marginHorizontal="@dimen/_15sdp"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Hobbies"
-        android:fontFamily="@font/montserrat_medium"
-        app:layout_constraintStart_toStartOf="@id/personalInfoPortion"
-        app:layout_constraintEnd_toEndOf="@id/personalInfoPortion"
-        app:layout_constraintTop_toBottomOf="@id/skillsRV"
-        android:layout_marginTop="@dimen/_5sdp"
-        android:textSize="@dimen/_8sdp"
-        android:textColor="@color/white"
-        android:paddingVertical="@dimen/_2sdp"
-        android:background="@drawable/template_3_title_bg"/>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/hobbiesRV"
+    <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintStart_toStartOf="@id/personalInfoPortion"
-        app:layout_constraintEnd_toEndOf="@id/personalInfoPortion"
-        app:layout_constraintTop_toBottomOf="@id/hobbiesTitle"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginTop="@dimen/_5sdp"
-        android:layout_marginHorizontal="@dimen/_7sdp"
-        android:layout_marginBottom="@dimen/_5sdp"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        tools:itemCount="4"
-        tools:listitem="@layout/text_only_item_view_white"
-        app:spanCount="2"/>
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="@dimen/_25sdp"
+        android:layout_marginHorizontal="@dimen/_25sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/profileCard"
+        app:layout_constraintBottom_toTopOf="@id/horizontalPercent95">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/aiCover"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_medium"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_10sdp"/>
+    </ScrollView>
+
 
     <ImageView
         android:layout_width="@dimen/_45sdp"
@@ -705,5 +411,7 @@
         app:tint="@color/white"
         android:layout_margin="@dimen/_20sdp"
         android:padding="@dimen/_15sdp"
-        android:id="@+id/add"/>
+        android:id="@+id/export"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,27 +13,36 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.bumptech.glide.Glide;
 import com.pro.resume.craft.Api.OpenAiApi;
 import com.pro.resume.craft.Api.OpenAiRequest;
 import com.pro.resume.craft.Api.OpenAiResponse;
 import com.pro.resume.craft.Api.RetrofitClient;
 import com.pro.resume.craft.R;
+import com.pro.resume.craft.database.AppDatabase;
 import com.pro.resume.craft.databinding.FragmentProfileBinding;
+import com.pro.resume.craft.models.DTOProfile;
 import com.pro.resume.craft.models.DummyModelDetails;
 import com.pro.resume.craft.utils.NetworkUtils;
+import com.pro.resume.craft.utils.SharedPreferencesHelper;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.inject.Inject;
+
+import dagger.hilt.android.AndroidEntryPoint;
 import retrofit2.Call;
 import retrofit2.Callback;
 
+@AndroidEntryPoint
 public class ProfileFragment extends Fragment {
 
    private FragmentProfileBinding binding;
    private NavigationDetailsAdapter navigationDetailsAdapter;
-
+    @Inject
+    AppDatabase appDatabase;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -47,6 +56,15 @@ public class ProfileFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         List<DummyModelDetails> dummyModelList = getDummyModelList();
+        String email = SharedPreferencesHelper.getString(requireContext(), "currentProfileId","");
+        DTOProfile profile1 = appDatabase.userDao().findByEmail(email);
+        binding.userName.setText(profile1.getFirstName()+" "+ profile1.getLastName());
+        binding.profession.setText(profile1.getEmail());
+        Glide.with(requireActivity())
+                .load(profile1.getProfilePhotoUrl())
+                .centerCrop()
+                .placeholder(R.drawable.icon_profile_fill) // Optional placeholder image while loading
+                .into(binding.profile);
 
         navigationDetailsAdapter = new NavigationDetailsAdapter(dummyModelList, new NavigationDetailsAdapter.OnItemClickListener() {
             @Override
@@ -103,54 +121,6 @@ public class ProfileFragment extends Fragment {
         });
 
     }
-
-    private void startWriting() {
-            if (!NetworkUtils.isInternetAvailable(requireContext())) {
-                Toast.makeText(requireContext(), "No internet connection", Toast.LENGTH_SHORT).show();
-                return;
-            }
-            getResponseRetro("hello");
-
-    }
-
-
-    private void getResponseRetro(String userMessage) {
-        if (NetworkUtils.isInternetAvailable(requireContext())) {
-            OpenAiApi openAiApi = RetrofitClient.getRetrofitInstance(requireContext()).create(OpenAiApi.class);
-
-            OpenAiRequest.Message systemMessage = new OpenAiRequest.Message("system", "You are a helpful assistant.");
-            OpenAiRequest.Message userMsg = new OpenAiRequest.Message("user", userMessage);
-            OpenAiRequest requestBody = new OpenAiRequest("gpt-3.5-turbo-0125", Arrays.asList(systemMessage, userMsg));
-
-            Call<OpenAiResponse> call = openAiApi.getChatCompletion(
-                    "Bearer sk-None-wc6Kz358qRKsibYbIT5cT3BlbkFJYsC4fj51vxN7T6CA8Gi9",
-                    requestBody
-            );
-
-            call.enqueue(new Callback<OpenAiResponse>() {
-                @Override
-                public void onResponse(Call<OpenAiResponse> call, retrofit2.Response<OpenAiResponse> response) {
-                    if (response.isSuccessful()) {
-                        OpenAiResponse openAiResponse = response.body();
-                        if (openAiResponse != null && !openAiResponse.getChoices().isEmpty()) {
-                            String responseText = openAiResponse.getChoices().get(0).getMessage().getContent();
-                            Log.e("TAG", "onResponse: " + responseText);
-                        } else {
-                            Log.e("OpenAiApi", "No response from API");
-                        }
-                    } else {
-                        Log.e("OpenAiApi", "Error: " + response.message());
-                    }
-                }
-
-                @Override
-                public void onFailure(Call<OpenAiResponse> call, Throwable t) {
-                    Log.e("OpenAiApi", "Error: " + t.getMessage());
-                }
-            });
-        }
-    }
-
 
     private List<DummyModelDetails> getDummyModelList() {
         List<DummyModelDetails> list = new ArrayList<>();

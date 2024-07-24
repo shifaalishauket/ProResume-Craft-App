@@ -145,5 +145,10 @@
         android:name="com.pro.resume.craft.fragments.cvdata.viewcv.PreviewResumeFragment"
         android:label="fragment_preview_resume"
         tools:layout="@layout/fragment_preview_resume" />
+    <fragment
+        android:id="@+id/coverLetterPreviewFragment"
+        android:name="com.pro.resume.craft.fragments.home.CoverLetterPreviewFragment"
+        android:label="fragment_cover_letter_preview"
+        tools:layout="@layout/fragment_cover_letter_preview" />
 
 </navigation>

@@ -1,10 +1,16 @@
 package com.pro.resume.craft.fragments.cvdata.coverletter;
 
+
+import android.content.ClipData;
+import android.content.ClipboardManager;
+
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -19,6 +25,7 @@ import com.pro.resume.craft.Api.RetrofitClient;
 import com.pro.resume.craft.R;
 import com.pro.resume.craft.database.AppDatabase;
 import com.pro.resume.craft.databinding.FragmentAICoverBinding;
+import com.pro.resume.craft.fragments.cvdata.experience.AddExperienceFragment;
 import com.pro.resume.craft.models.DTOEducation;
 import com.pro.resume.craft.models.DTOExperience;
 import com.pro.resume.craft.models.DTOPersonalInfo;
@@ -27,6 +34,7 @@ import com.pro.resume.craft.utils.SharedPreferencesHelper;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -54,10 +62,52 @@ public class AICoverFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        startWriting();
 
+        binding.submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startWriting();
+            }
+        });
 
+        binding.retry.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startWriting();
+            }
+        });
 
+        binding.copy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String textToCopy = binding.outputTV.getText().toString();
+                if (!textToCopy.isEmpty()) {
+                    ClipboardManager clipboard = (ClipboardManager) requireActivity().getSystemService(Context.CLIPBOARD_SERVICE);
+                    ClipData clip = ClipData.newPlainText("Copied Text", textToCopy);
+                    clipboard.setPrimaryClip(clip);
+
+                    Toast.makeText(requireActivity(), "Text copied to clipboard", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(requireActivity(), "No text to copy", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        binding.applyTmpBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle bundle = new Bundle();
+                bundle.putString("letter", binding.outputTV.getText().toString()); // Add your data to the bundle
+                NavHostFragment.findNavController(AICoverFragment.this).navigate(R.id.coverLetterPreviewFragment,bundle);
+            }
+        });
+
+        binding.back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavHostFragment.findNavController(AICoverFragment.this).popBackStack();
+            }
+        });
     }
 
     private void startWriting() {
@@ -69,10 +119,29 @@ public class AICoverFragment extends Fragment {
 
         DTOPersonalInfo dtoPersonalInfo = appDatabase.userDao().getPersonalInfo(email);
         ArrayList<DTOExperience> experiences = (ArrayList<DTOExperience>) appDatabase.userDao().getAllExperience(email);
+        String coverLetterPrompt = generateCoverLetter(dtoPersonalInfo.getFirstName(), dtoPersonalInfo.getLastName(), dtoPersonalInfo.getProfession(), experiences);
 
-        getResponseRetro("Hi, I'm providing you my details and you need to write cover letter for that. Please make sure that it's effective. Please do not write the captions like here's the cover letter or something like that. just provide the cover letter. hope you'll understand.  My name is" + dtoPersonalInfo.getFirstName() + " " + dtoPersonalInfo.getLastName()
-                + " and my profession is " + dtoPersonalInfo.getProfession() + ". Here's my experience list:"+experiences);
+        getResponseRetro(coverLetterPrompt);
 
+    }
+
+    public String generateCoverLetter(String firstName, String lastName, String profession, List<DTOExperience> experiences) {
+        StringBuilder coverLetter = new StringBuilder();
+
+        coverLetter.append("Hi, I'm providing you my details and you need to write a cover letter for that. Please make sure that it's effective. Please do not write the captions like here's the cover letter or something like that. just provide the cover letter. hope you'll understand. ");
+        coverLetter.append("My name is ").append(firstName).append(" ").append(lastName).append(" and my profession is ").append(profession).append(". ");
+        coverLetter.append("Here's my experience list:");
+
+        for (DTOExperience experience : experiences) {
+            coverLetter.append("\n")
+                    .append("Company: ").append(experience.getCompany()).append(", ")
+                    .append("Title: ").append(experience.getTitle()).append(", ")
+                    .append("Start Date: ").append(experience.getStartDate()).append(", ")
+                    .append("End Date: ").append(experience.getEndDate()).append(", ")
+                    .append("Description: ").append(experience.getDescription()).append(".");
+        }
+
+        return coverLetter.toString();
     }
 
 

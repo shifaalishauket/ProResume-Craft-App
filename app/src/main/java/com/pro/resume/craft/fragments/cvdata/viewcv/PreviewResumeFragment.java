@@ -165,7 +165,11 @@ public class PreviewResumeFragment extends Fragment {
                             new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE},
                             REQUEST_CODE_STORAGE_PERMISSION);
                 } else {
-                    createPdf(dtoPersonalInfo.getFirstName() + System.currentTimeMillis());
+                    if (dtoPersonalInfo !=null){
+                        createPdf(dtoPersonalInfo.getFirstName() + System.currentTimeMillis());
+                    }else{
+                        Toast.makeText(requireActivity(), "Please add personal info first!", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });
@@ -229,7 +233,7 @@ public class PreviewResumeFragment extends Fragment {
         try {
             document.writeTo(new FileOutputStream(filePath));
             byte[] bitmapData = BitmapTypeConverter.fromBitmap(bitmap);
-            DTOSavedResumes dtoSavedResumes = new DTOSavedResumes(0,uKey,bitmapData,targetPdf);
+            DTOSavedResumes dtoSavedResumes = new DTOSavedResumes(0, uKey, bitmapData, targetPdf);
             appDatabase.userDao().insertResume(dtoSavedResumes);
             Toast.makeText(requireContext(), "PDF saved at " + targetPdf, Toast.LENGTH_SHORT).show();
             NavHostFragment.findNavController(PreviewResumeFragment.this).popBackStack();
@@ -238,11 +242,8 @@ public class PreviewResumeFragment extends Fragment {
             Toast.makeText(requireContext(), "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
 
-        // Close the document
         document.close();
     }
-
-
 
 
     void setBasicInfo(View v, DTOPersonalInfo dtoPersonalInfo){
@@ -257,7 +258,6 @@ public class PreviewResumeFragment extends Fragment {
             firstname.setText(dtoPersonalInfo.getFirstName() + " " + dtoPersonalInfo.getLastName());
         }
 
-
         if (dtoTemplate.getTempletename() != R.layout.template_4 && dtoTemplate.getTempletename() != R.layout.template_5){
             profile_image = v.findViewById(R.id.profile);
 
@@ -267,8 +267,6 @@ public class PreviewResumeFragment extends Fragment {
         address = v.findViewById(R.id.address);
         phone = v.findViewById(R.id.phone);
         email = v.findViewById(R.id.email);
-
-
 
         designation.setText(dtoPersonalInfo.getProfession());
         address.setText(dtoPersonalInfo.getAddress());

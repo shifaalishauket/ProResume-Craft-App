@@ -44,7 +44,7 @@
                 android:fontFamily="@font/montserrat_medium"
                 android:textSize="@dimen/_12sdp"
                 android:paddingVertical="@dimen/_5sdp"
-                android:id="@+id/launchProfile"/>
+                android:id="@+id/previewCV"/>
 
             <View
                 android:layout_width="match_parent"
@@ -55,11 +55,26 @@
                 android:background="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Delete Profile"
+                android:text="Share"
                 android:fontFamily="@font/montserrat_medium"
                 android:textSize="@dimen/_12sdp"
                 android:paddingVertical="@dimen/_5sdp"
-                android:id="@+id/deleteProfile"/>
+                android:id="@+id/shareCV"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:background="@color/strokeColor"/>
+
+            <TextView
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Delete"
+                android:fontFamily="@font/montserrat_medium"
+                android:textSize="@dimen/_12sdp"
+                android:paddingVertical="@dimen/_5sdp"
+                android:id="@+id/deleteCV"/>
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

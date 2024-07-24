@@ -28,9 +28,6 @@ public abstract class AppDatabase extends RoomDatabase {
     private static volatile AppDatabase instance;
     private static final Object LOCK = new Object();
     public abstract UserDao userDao();
-//
-//    public abstract CartDao cartDao();
-//    public abstract FavoritesDao favoritesDao();
 
     public static AppDatabase getInstance(Context context) {
         if (instance == null) {

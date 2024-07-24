@@ -7,6 +7,7 @@
     android:layout_height="@dimen/_45sdp"
     app:strokeColor="@color/strokeColor"
     app:strokeWidth="@dimen/_1sdp"
+    app:cardBackgroundColor="@color/white"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="@dimen/_10sdp">
 
@@ -42,7 +43,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@id/profilePhotoCard"
             app:layout_constraintEnd_toStartOf="@id/options"
-            android:textColor="@color/white"
+            android:textColor="@color/textColor"
             android:textSize="@dimen/_12sdp"
             android:fontFamily="@font/montserrat_medium"/>
 

@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
             public void handleOnBackPressed() {
                 if (navController.getCurrentDestination() != null) {
                     int currentDestinationId = navController.getCurrentDestination().getId();
-                    if (currentDestinationId == R.id.homeFragment) {
+                    if (currentDestinationId == R.id.homeFragment || currentDestinationId == R.id.loginFragment) {
                         finish();
                     } else {
                         navController.navigateUp();

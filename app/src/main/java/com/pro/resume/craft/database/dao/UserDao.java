@@ -71,9 +71,8 @@ public interface UserDao {
     @Query("SELECT * FROM savedresume WHERE email = :email")
     LiveData<List<DTOSavedResumes>> getSavedResumes(String email);
 
-    @Query("DELETE FROM experience WHERE id =:id")
+    @Query("DELETE FROM savedresume WHERE id =:id")
     void deleteResumeById(int id);
-
 
     @Query("SELECT * FROM experience WHERE email = :email")
     LiveData<List<DTOExperience>> getExperiencesByEmail(String email);

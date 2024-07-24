@@ -55,25 +55,25 @@
 
 
     <ImageView
-        android:layout_width="@dimen/_30sdp"
-        android:layout_height="@dimen/_30sdp"
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="@dimen/_20sdp"
         android:src="@drawable/view_cv"
         android:id="@+id/viewResume"
         app:layout_constraintEnd_toStartOf="@id/aiCover"
         app:layout_constraintTop_toTopOf="@id/aiCover"
-        android:layout_marginEnd="@dimen/_5sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
         app:layout_constraintBottom_toBottomOf="@id/aiCover"
         app:tint="@color/appColor"
         />
 
     <ImageView
-        android:layout_width="@dimen/_30sdp"
-        android:layout_height="@dimen/_30sdp"
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="@dimen/_20sdp"
         android:src="@drawable/templates_icon"
         android:id="@+id/selectTemplate"
         app:layout_constraintEnd_toStartOf="@id/viewResume"
         app:layout_constraintTop_toTopOf="@id/aiCover"
-        android:layout_marginEnd="@dimen/_5sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
         app:layout_constraintBottom_toBottomOf="@id/aiCover"
         app:tint="@color/appColor" />
 
@@ -92,18 +92,6 @@
             android:layout_height="wrap_content"
             android:src="@drawable/icon_ai"
             android:id="@+id/ai"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="AI Letter"
-            android:layout_gravity="center"
-            android:layout_marginStart="@dimen/_7sdp"
-            android:fontFamily="@font/montserrat_regular"
-            android:textSize="@dimen/_13sdp"
-            android:textColor="@color/textColor"
-            />
-
     </LinearLayout>
 
     <com.google.android.material.card.MaterialCardView

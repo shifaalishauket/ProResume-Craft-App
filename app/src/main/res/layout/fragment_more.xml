@@ -75,6 +75,7 @@
         app:layout_constraintEnd_toStartOf="@id/endGuide"
         app:layout_constraintTop_toBottomOf="@id/subTitle1"
         app:strokeColor="@color/strokeColor"
+        app:cardBackgroundColor="@color/white"
         app:strokeWidth="@dimen/_1sdp"
         app:cardCornerRadius="@dimen/_10sdp">
 
@@ -143,6 +144,7 @@
         app:layout_constraintEnd_toStartOf="@id/endGuide"
         app:layout_constraintTop_toBottomOf="@id/subTitle2"
         app:strokeColor="@color/strokeColor"
+        app:cardBackgroundColor="@color/white"
         app:strokeWidth="@dimen/_1sdp"
         app:cardCornerRadius="@dimen/_10sdp">
 
