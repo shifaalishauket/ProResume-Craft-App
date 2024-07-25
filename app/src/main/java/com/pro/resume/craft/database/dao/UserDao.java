@@ -26,8 +26,13 @@ public interface UserDao {
     @Insert
     void insert(DTOProfile user);
 
+
+    @Query("UPDATE profiles SET profileId = :profileId, firstName = :firstName, lastName = :lastName, profilePhotoUrl = :profilePhotoUrl, email = :email WHERE id = :id")
+    void updateProfileById(int id, String profileId, String firstName, String lastName, String profilePhotoUrl, String email);
+
     @Query("DELETE FROM profiles WHERE email =:email")
     void deleteProfileById(String email);
+
 
     @Query("SELECT * FROM profiles WHERE email =:email")
     DTOProfile findByEmail(String email);
@@ -41,6 +46,9 @@ public interface UserDao {
     @Query("SELECT * FROM cover WHERE email =:email")
     LiveData<List<DTOCoverLetter>> findCoverByEmail(String email);
 
+
+    @Query("UPDATE personalInfo SET firstName = :firstName, lastName = :lastName, profilePhotoUrl = :profilePhotoUrl, email = :email, uid = :uid, profession = :profession, phonenumber = :phonenumber, address = :address WHERE id = :id")
+    void updatePersonalInfoById(int id, String firstName, String lastName, String profilePhotoUrl, String email, String uid, String profession, String phonenumber, String address);
 
     @Insert
     void insertPersonalInfo(DTOPersonalInfo DTOPersonalInfo);

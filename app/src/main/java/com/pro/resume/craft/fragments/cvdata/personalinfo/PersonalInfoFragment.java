@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,6 +35,7 @@ public class PersonalInfoFragment extends Fragment {
     @Inject
     AppDatabase appDatabase;
 
+    private DTOPersonalInfo personalInfo;
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -95,19 +97,23 @@ public class PersonalInfoFragment extends Fragment {
 
                 if (dtoPersonalInfo != null){
 
-                    dtoPersonalInfo.setFirstName(firstName);
-                    dtoPersonalInfo.setLastName(lastName);
-                    dtoPersonalInfo.setEmail(email);
-                    dtoPersonalInfo.setProfession(profession);
-                    dtoPersonalInfo.setPhonenumber(binding.phoneText.getText().toString());
-                    dtoPersonalInfo.setAddress(binding.addressText.getText().toString());
-
-                    appDatabase.userDao().insertPersonalInfo(dtoPersonalInfo);
+                    Log.d("TAG", "onClick:123 "+dtoPersonalInfo.getId());
+                    appDatabase.userDao().updatePersonalInfoById(
+                            dtoPersonalInfo.getId(),
+                            binding.firstNameText.getText().toString(),
+                            binding.lastNameText.getText().toString(),
+                            dtoPersonalInfo.getProfilePhotoUrl(),
+                            binding.emailText.getText().toString(),
+                            dtoPersonalInfo.getUid(),
+                            binding.professionText.getText().toString(),
+                            binding.phoneText.getText().toString(),
+                            binding.addressText.getText().toString()
+                    );
 
                 }else{
-                    DTOPersonalInfo DTOPersonalInfo = new DTOPersonalInfo(0,firstName,lastName,profile.getProfilePhotoUrl(),email,profile.getEmail(),profession,binding.phoneText.getText().toString(),binding.addressText.getText().toString());
+                    personalInfo = new DTOPersonalInfo(0,firstName,lastName,profile.getProfilePhotoUrl(),email,profile.getEmail(),profession,binding.phoneText.getText().toString(),binding.addressText.getText().toString());
 
-                    appDatabase.userDao().insertPersonalInfo(DTOPersonalInfo);
+                    appDatabase.userDao().insertPersonalInfo(personalInfo);
 
                 }
 
@@ -121,6 +127,8 @@ public class PersonalInfoFragment extends Fragment {
         binding.removeBg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("userData",personalInfo);
                 NavHostFragment.findNavController(PersonalInfoFragment.this).navigate(R.id.removerFragment);
             }
         });

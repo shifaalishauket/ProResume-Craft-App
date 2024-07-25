@@ -5,4 +5,46 @@
     <color name="textColor">#1e1e1e</color>
     <color name="appColor">#128DFF</color>
     <color name="strokeColor">#C9DEF2</color>
+
+    <color name="color_f0f0f0">#F0F0F0</color>
+    <color name="color_eaeaea">#EAEAEA</color>
+    <color name="color_d3d3d3">#D3D3D3</color>
+    <color name="color_cccccc">#CCCCCC</color>
+    <color name="color_bfbfbf">#BFBFBF</color>
+    <color name="color_a9a9a9">#A9A9A9</color>
+    <color name="color_808080">#808080</color>
+    <color name="color_666666">#666666</color>
+    <color name="color_4c4c4c">#4C4C4C</color>
+    <color name="color_333333">#333333</color>
+    <color name="color_ffcccc">#FFCCCC</color>
+    <color name="color_ff9999">#FF9999</color>
+    <color name="color_ff6666">#FF6666</color>
+    <color name="color_ff3333">#FF3333</color>
+    <color name="color_ff0000">#FF0000</color>
+    <color name="color_cc0000">#CC0000</color>
+    <color name="color_990000">#990000</color>
+    <color name="color_660000">#660000</color>
+    <color name="color_ffcc99">#FFCC99</color>
+    <color name="color_ff9966">#FF9966</color>
+    <color name="color_ff6633">#FF6633</color>
+    <color name="color_ff3300">#FF3300</color>
+    <color name="color_ff6600">#FF6600</color>
+    <color name="color_cc6600">#CC6600</color>
+    <color name="color_993300">#993300</color>
+    <color name="color_663300">#663300</color>
+    <color name="color_ffff99">#FFFF99</color>
+    <color name="color_ffff66">#FFFF66</color>
+    <color name="color_ffff33">#FFFF33</color>
+    <color name="color_ffff00">#FFFF00</color>
+    <color name="color_e6f7ff">#E6F7FF</color>
+    <color name="color_bfefff">#BFEFFF</color>
+    <color name="color_99e6ff">#99E6FF</color>
+    <color name="color_66ccff">#66CCFF</color>
+    <color name="color_33b5e5">#33B5E5</color>
+    <color name="color_0099cc">#0099CC</color>
+    <color name="color_0077b3">#0077B3</color>
+    <color name="color_005c99">#005C99</color>
+    <color name="color_004c80">#004C80</color>
+    <color name="color_003366">#003366</color>
+
 </resources>

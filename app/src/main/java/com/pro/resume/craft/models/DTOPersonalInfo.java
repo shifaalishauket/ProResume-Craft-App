@@ -3,8 +3,10 @@ package com.pro.resume.craft.models;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
+
 @Entity(tableName = "personalInfo")
-public class DTOPersonalInfo {
+public class DTOPersonalInfo implements Serializable {
 
     @PrimaryKey(autoGenerate = true)
     private int id;

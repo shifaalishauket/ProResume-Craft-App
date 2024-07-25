@@ -32,6 +32,7 @@ import dagger.hilt.android.AndroidEntryPoint;
 public class SetTemplateFragment extends Fragment {
 
     private FragmentSetTemplateBinding binding;
+    private int position = 0;
 
     @Inject
     AppDatabase appDatabase;
@@ -62,6 +63,10 @@ public class SetTemplateFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         Bundle bundle = getArguments();
+        if (bundle!=null){
+            position = bundle.getInt("position",0);
+        }
+
         TemplateAdapter adapter = new TemplateAdapter(imageResources);
         binding.viewPager.setAdapter(adapter);
         CompositePageTransformer transformer = new CompositePageTransformer();
@@ -114,7 +119,8 @@ public class SetTemplateFragment extends Fragment {
             }
         });
 
-        binding.viewPager.setCurrentItem(bundle.getInt("position",0));
+            binding.viewPager.setCurrentItem(position);
+
     }
 
     private int getLayoutResIdForPosition(int position) {
