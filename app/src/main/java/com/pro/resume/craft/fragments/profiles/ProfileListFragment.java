@@ -1,19 +1,25 @@
 package com.pro.resume.craft.fragments.profiles;
 
+import android.app.AlertDialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -23,6 +29,7 @@ import com.pro.resume.craft.R;
 import com.pro.resume.craft.database.AppDatabase;
 import com.pro.resume.craft.databinding.FragmentProfileListBinding;
 import com.pro.resume.craft.models.DTOProfile;
+import com.pro.resume.craft.utils.SharedPreferencesHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,7 +65,7 @@ public class ProfileListFragment extends Fragment {
         db = FirebaseFirestore.getInstance();
         profileList = new ArrayList<>();
         profileAdapter = new ProfileAdapter(requireContext(), profileList, profile -> {
-            showBottomSheet(profile.getEmail());
+           createProfileOptionsBottomSheet(requireContext(),profile,mAuth,db,appDatabase);
         });
 
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
@@ -125,6 +132,79 @@ public class ProfileListFragment extends Fragment {
                         }
                     }
                 });
+    }
+
+    public void createProfileOptionsBottomSheet(Context context, DTOProfile profileId, FirebaseAuth mAuth, FirebaseFirestore db, AppDatabase appDatabase) {
+        View view = LayoutInflater.from(context).inflate(R.layout.profile_options_sheet, null);
+
+        TextView launchProfileTextView = view.findViewById(R.id.launchProfile);
+        TextView deleteProfileTextView = view.findViewById(R.id.deleteProfile);
+
+        launchProfileTextView.setOnClickListener(v -> {
+            // Save profile ID to SharedPreferences using SharedPreferencesHelper
+            SharedPreferencesHelper.saveString(context, "currentProfileId", profileId.getEmail());
+
+            // Navigate to HomeFragment or perform any other action
+            Toast.makeText(context, "Profile launched and saved!", Toast.LENGTH_SHORT).show();
+            // Replace with actual navigation code if needed
+            NavController navController = NavHostFragment.findNavController(this);
+            navController.navigate(R.id.homeFragment);
+        });
+
+        deleteProfileTextView.setOnClickListener(v -> showCustomDialog(context, profileId, mAuth, db, appDatabase));
+
+        BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(context);
+        bottomSheetDialog.setContentView(view);
+        bottomSheetDialog.show();
+    }
+
+    private void showCustomDialog(Context context, DTOProfile profileId, FirebaseAuth mAuth, FirebaseFirestore db, AppDatabase appDatabase) {
+        // Inflate the custom layout
+        LayoutInflater inflater = LayoutInflater.from(context);
+        View dialogView = inflater.inflate(R.layout.dialog_confirm_delete, null);
+
+        // Create the AlertDialog
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(context);
+        dialogBuilder.setView(dialogView);
+        AlertDialog alertDialog = dialogBuilder.create();
+
+        // Get references to the views in the custom layout
+        TextView dismiss = dialogView.findViewById(R.id.dismiss);
+        TextView delete = dialogView.findViewById(R.id.delete);
+
+        // Set the click listener for the dismiss button
+        dismiss.setOnClickListener(v -> alertDialog.dismiss());
+
+        // Set the click listener for the delete button
+        delete.setOnClickListener(v -> {
+            deleteProfile(context, profileId, mAuth, db, appDatabase);
+            alertDialog.dismiss();
+        });
+
+        // Show the dialog
+        alertDialog.show();
+        alertDialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+    }
+
+    private void deleteProfile(Context context, DTOProfile profileId, FirebaseAuth mAuth, FirebaseFirestore db, AppDatabase appDatabase) {
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if (currentUser == null) {
+            Toast.makeText(context, "User not authenticated", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        String uid = currentUser.getUid();
+        db.collection("users").document(uid).collection("profiles").document(profileId.getProfileId())
+                .delete()
+                .addOnSuccessListener(aVoid -> {
+                    // Delete from SQLite
+                    appDatabase.userDao().deleteProfileById(profileId.getEmail());
+
+                    fetchProfiles();
+
+                    Toast.makeText(context, "Profile deleted!", Toast.LENGTH_SHORT).show();
+                })
+                .addOnFailureListener(e -> Toast.makeText(context, "Failed to delete profile", Toast.LENGTH_SHORT).show());
     }
 
     @Override

@@ -58,40 +58,48 @@ public class ProfileFragment extends Fragment {
         List<DummyModelDetails> dummyModelList = getDummyModelList();
         String email = SharedPreferencesHelper.getString(requireContext(), "currentProfileId","");
         DTOProfile profile1 = appDatabase.userDao().findByEmail(email);
-        binding.userName.setText(profile1.getFirstName()+" "+ profile1.getLastName());
-        binding.profession.setText(profile1.getEmail());
-        Glide.with(requireActivity())
-                .load(profile1.getProfilePhotoUrl())
-                .centerCrop()
-                .placeholder(R.drawable.icon_profile_fill) // Optional placeholder image while loading
-                .into(binding.profile);
+        if (profile1 != null){
+            binding.userName.setText(profile1.getFirstName()+" "+ profile1.getLastName());
+            binding.profession.setText(profile1.getEmail());
+            Glide.with(requireActivity())
+                    .load(profile1.getProfilePhotoUrl())
+                    .centerCrop()
+                    .placeholder(R.drawable.icon_profile_fill) // Optional placeholder image while loading
+                    .into(binding.profile);
+        }
+
 
         navigationDetailsAdapter = new NavigationDetailsAdapter(dummyModelList, new NavigationDetailsAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(DummyModelDetails dummyModel) {
-                if (dummyModel.getName().equals("Personal Details")){
-                    NavHostFragment.findNavController(ProfileFragment.this).navigate(R.id.personalInfoFragment);
-                }else if (dummyModel.getName().equals("Objective")){
-                    NavHostFragment.findNavController(ProfileFragment.this).navigate(R.id.objectiveFragment);
+                if (profile1 != null){
+                    if (dummyModel.getName().equals("Personal Details")){
+                        NavHostFragment.findNavController(ProfileFragment.this).navigate(R.id.personalInfoFragment);
+                    }else if (dummyModel.getName().equals("Objective")){
+                        NavHostFragment.findNavController(ProfileFragment.this).navigate(R.id.objectiveFragment);
 
-                }else if (dummyModel.getName().equals("Experience")){
-                    NavHostFragment.findNavController(ProfileFragment.this).navigate(R.id.experienceFragment);
+                    }else if (dummyModel.getName().equals("Experience")){
+                        NavHostFragment.findNavController(ProfileFragment.this).navigate(R.id.experienceFragment);
 
-                }else if (dummyModel.getName().equals("Qualification")){
-                    NavHostFragment.findNavController(ProfileFragment.this).navigate(R.id.qualificationFragment);
+                    }else if (dummyModel.getName().equals("Qualification")){
+                        NavHostFragment.findNavController(ProfileFragment.this).navigate(R.id.qualificationFragment);
 
-                }else if (dummyModel.getName().equals("Languages")){
-                    NavHostFragment.findNavController(ProfileFragment.this).navigate(R.id.languagesFragment);
+                    }else if (dummyModel.getName().equals("Languages")){
+                        NavHostFragment.findNavController(ProfileFragment.this).navigate(R.id.languagesFragment);
 
-                }else if (dummyModel.getName().equals("Skills")){
-                    NavHostFragment.findNavController(ProfileFragment.this).navigate(R.id.skillsFragment);
+                    }else if (dummyModel.getName().equals("Skills")){
+                        NavHostFragment.findNavController(ProfileFragment.this).navigate(R.id.skillsFragment);
 
-                }else if (dummyModel.getName().equals("Hobbies")){
-                    NavHostFragment.findNavController(ProfileFragment.this).navigate(R.id.hobbiesFragment);
+                    }else if (dummyModel.getName().equals("Hobbies")){
+                        NavHostFragment.findNavController(ProfileFragment.this).navigate(R.id.hobbiesFragment);
 
-                }else if (dummyModel.getName().equals("References")){
-                    NavHostFragment.findNavController(ProfileFragment.this).navigate(R.id.referenceFragment);
+                    }else if (dummyModel.getName().equals("References")){
+                        NavHostFragment.findNavController(ProfileFragment.this).navigate(R.id.referenceFragment);
+                    }
+                }else {
+                    Toast.makeText(requireContext(),"Add or select a profile to continue entering cv data",Toast.LENGTH_SHORT).show();
                 }
+
             }
         });
 
