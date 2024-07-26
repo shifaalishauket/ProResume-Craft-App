@@ -20,7 +20,6 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.pro.resume.craft.R;
-import com.pro.resume.craft.adapters.ProfileAdapter;
 import com.pro.resume.craft.database.AppDatabase;
 import com.pro.resume.craft.databinding.FragmentProfileListBinding;
 import com.pro.resume.craft.models.DTOProfile;

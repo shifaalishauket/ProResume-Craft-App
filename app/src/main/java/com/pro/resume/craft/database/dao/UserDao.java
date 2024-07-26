@@ -23,7 +23,7 @@ import java.util.List;
 
 @Dao
 public interface UserDao {
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(DTOProfile user);
 
 
@@ -50,7 +50,7 @@ public interface UserDao {
     @Query("UPDATE personalInfo SET firstName = :firstName, lastName = :lastName, profilePhotoUrl = :profilePhotoUrl, email = :email, uid = :uid, profession = :profession, phonenumber = :phonenumber, address = :address WHERE id = :id")
     void updatePersonalInfoById(int id, String firstName, String lastName, String profilePhotoUrl, String email, String uid, String profession, String phonenumber, String address);
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertPersonalInfo(DTOPersonalInfo DTOPersonalInfo);
 
 

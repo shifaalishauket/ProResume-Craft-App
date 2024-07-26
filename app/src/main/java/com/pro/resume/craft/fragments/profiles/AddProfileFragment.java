@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 
 import com.github.dhaval2404.imagepicker.ImagePicker;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -28,6 +29,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.pro.resume.craft.database.AppDatabase;
 import com.pro.resume.craft.databinding.FragmentAddProfileBinding;
+import com.pro.resume.craft.fragments.cvdata.remove.background.RemoverFragment;
 import com.pro.resume.craft.models.DTOProfile;
 import com.pro.resume.craft.utils.Utils;
 
@@ -100,6 +102,13 @@ public class AddProfileFragment extends Fragment {
 
 
                 uploadImageAndSaveProfile(firstName, lastName,email);
+            }
+        });
+
+        binding.back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavHostFragment.findNavController(AddProfileFragment.this).popBackStack();
             }
         });
 

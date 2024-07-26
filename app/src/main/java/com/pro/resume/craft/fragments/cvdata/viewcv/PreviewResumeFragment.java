@@ -166,6 +166,7 @@ public class PreviewResumeFragment extends Fragment {
                             REQUEST_CODE_STORAGE_PERMISSION);
                 } else {
                     if (dtoPersonalInfo !=null){
+                        imageView.setVisibility(View.GONE);
                         createPdf(dtoPersonalInfo.getFirstName() + System.currentTimeMillis());
                     }else{
                         Toast.makeText(requireActivity(), "Please add personal info first!", Toast.LENGTH_SHORT).show();

@@ -1,4 +1,4 @@
-package com.pro.resume.craft.adapters;
+package com.pro.resume.craft.fragments.profiles;
 
 import android.content.Context;
 import android.view.LayoutInflater;
