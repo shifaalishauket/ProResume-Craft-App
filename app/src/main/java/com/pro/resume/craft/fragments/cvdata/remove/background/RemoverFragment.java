@@ -73,7 +73,6 @@ public class RemoverFragment extends Fragment {
         return binding.getRoot();
     }
 
-
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -96,10 +95,10 @@ public class RemoverFragment extends Fragment {
         binding.submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (binding.submitText.getText().toString().equals("Submit")){
+                if (binding.submitText.getText().toString().equals("Submit")) {
                     Bitmap bitmap = getBitmapFromView();
                     replaceImage(bitmap);
-                }else{
+                } else {
                     removeBackground();
                 }
             }
@@ -115,9 +114,9 @@ public class RemoverFragment extends Fragment {
         binding.bgColor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (binding.bgColors.getVisibility()==View.GONE){
+                if (binding.bgColors.getVisibility() == View.GONE) {
                     binding.bgColors.setVisibility(View.VISIBLE);
-                }else{
+                } else {
                     binding.bgColors.setVisibility(View.GONE);
                 }
             }
@@ -148,11 +147,11 @@ public class RemoverFragment extends Fragment {
         FirebaseStorage storage = FirebaseStorage.getInstance();
 
         // Create a reference to the path where the image is stored
-        StorageReference imageRef = storage.getReference().child("profileImages").child(dtoProfile.getProfileId() + ".jpg");
+        StorageReference imageRef = storage.getReference().child("profileImages").child(dtoProfile.getProfileId() + ".png");
 
         // Convert bitmap to byte array
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
         byte[] data = baos.toByteArray();
 
         // Upload the new image data to the same path
@@ -162,27 +161,56 @@ public class RemoverFragment extends Fragment {
             // Handle successful upload
             imageRef.getDownloadUrl().addOnSuccessListener(uri -> {
                 String newUrl = uri.toString();
-                Log.d("TAG", "replaceImage: "+dtoProfile.getProfilePhotoUrl());
-                Log.d("TAG", "replaceImage: "+newUrl);
+                Log.d("TAG", "replaceImage: " + dtoProfile.getProfilePhotoUrl());
+                Log.d("TAG", "replaceImage: " + newUrl);
+
                 // The URL remains the same if you used the same path
                 // Do something with the new URL if needed
                 dtoProfile.setProfilePhotoUrl(newUrl);
-                saveProfileToFirestore(dtoProfile,uid, dtoProfile.getProfileId());
+                saveProfileToFirestore(dtoProfile, uid, dtoProfile.getProfileId());
 
-                if (dtoPersonalInfo!=null){
-                    dtoPersonalInfo = new DTOPersonalInfo(dtoPersonalInfo.getId(),dtoProfile.getFirstName(),dtoProfile.getLastName(),newUrl,dtoProfile.getEmail(),dtoProfile.getEmail(), dtoPersonalInfo.getProfession(), dtoPersonalInfo.getPhonenumber(), dtoPersonalInfo.getAddress());
-                }else {
-                    dtoPersonalInfo = new DTOPersonalInfo(0,dtoProfile.getFirstName(),dtoProfile.getLastName(),newUrl,dtoProfile.getEmail(),dtoProfile.getEmail(),"","","");
+                if (dtoPersonalInfo != null) {
+                    dtoPersonalInfo = new DTOPersonalInfo(
+                            dtoPersonalInfo.getId(),
+                            dtoProfile.getFirstName(),
+                            dtoProfile.getLastName(),
+                            newUrl,
+                            dtoProfile.getEmail(),
+                            dtoProfile.getEmail(),
+                            dtoPersonalInfo.getProfession(),
+                            dtoPersonalInfo.getPhonenumber(),
+                            dtoPersonalInfo.getAddress()
+                    );
+                } else {
+                    dtoPersonalInfo = new DTOPersonalInfo(
+                            0,
+                            dtoProfile.getFirstName(),
+                            dtoProfile.getLastName(),
+                            newUrl,
+                            dtoProfile.getEmail(),
+                            dtoProfile.getEmail(),
+                            "",
+                            "",
+                            ""
+                    );
                 }
                 appDatabase.userDao().insertPersonalInfo(dtoPersonalInfo);
 
-                dtoProfile = new DTOProfile(dtoProfile.getId(), dtoProfile.getProfileId(), dtoProfile.getFirstName(), dtoProfile.getLastName(), newUrl, dtoProfile.getEmail());
+                dtoProfile = new DTOProfile(
+                        dtoProfile.getId(),
+                        dtoProfile.getProfileId(),
+                        dtoProfile.getFirstName(),
+                        dtoProfile.getLastName(),
+                        newUrl,
+                        dtoProfile.getEmail()
+                );
                 appDatabase.userDao().insert(dtoProfile);
             });
         }).addOnFailureListener(exception -> {
             exception.printStackTrace();
         });
     }
+
     private void removeBackground() {
         Bitmap inputBitmap = getBitmapFromImageView(binding.photo);
         RemoveBackground.Companion.removeBG(inputBitmap, binding.photo, binding.progress, new RemoveBackground.Companion.BackgroundRemovalCallback() {
@@ -210,12 +238,12 @@ public class RemoverFragment extends Fragment {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            Utils.disableInteraction(true,requireActivity());
+                            Utils.disableInteraction(true, requireActivity());
                             binding.progress.setVisibility(View.GONE);
                             Toast.makeText(getActivity(), "Profile updated successfully.", Toast.LENGTH_SHORT).show();
                             NavHostFragment.findNavController(RemoverFragment.this).popBackStack();
                         } else {
-                            Utils.disableInteraction(true,requireActivity());
+                            Utils.disableInteraction(true, requireActivity());
                             binding.progress.setVisibility(View.GONE);
                             Toast.makeText(getActivity(), "Error updating profile: " + Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
                         }
@@ -234,8 +262,8 @@ public class RemoverFragment extends Fragment {
     }
 
     private Bitmap getBitmapFromView() {
-        // Enable drawing cache and build it
-        binding.photo.setBackgroundColor(Color.TRANSPARENT)
+        // Set the background color to transparent
+        binding.photo.setBackgroundColor(Color.TRANSPARENT);
         binding.photoBG.setDrawingCacheEnabled(true);
         binding.photoBG.buildDrawingCache();
 

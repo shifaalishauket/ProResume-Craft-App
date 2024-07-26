@@ -137,24 +137,19 @@ public class ProfileOptionsBottomSheet extends BottomSheetDialogFragment {
         TextView dismiss = dialogView.findViewById(R.id.dismiss);
         TextView delete = dialogView.findViewById(R.id.delete);
 
-        // Set the click listener for the positive button
-        dismiss.setOnClickListener(v -> {
-            // Handle positive button click
-            alertDialog.dismiss();
-        });
+        // Set the click listener for the dismiss button
+        dismiss.setOnClickListener(v -> alertDialog.dismiss());
 
-        // Set the click listener for the negative button
+        // Set the click listener for the delete button
         delete.setOnClickListener(v -> {
-            // Handle negative button click
-
             deleteProfile();
             alertDialog.dismiss();
+//            NavHostFragment.findNavController(ProfileOptionsBottomSheet.this).navigate(R.id.splashFragment);
         });
 
         // Show the dialog
         alertDialog.show();
         alertDialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-
     }
 
     public void setProfileId(String profileId) {
